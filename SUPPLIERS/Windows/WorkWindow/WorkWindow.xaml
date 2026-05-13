@@ -1,0 +1,217 @@
+﻿<Window x:Class="SUPPLIERS.Windows.WorkWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SUPPLIERS.Windows"
+        xmlns:c="clr-namespace:SUPPLIERS.Controller"
+        mc:Ignorable="d"
+        Title="Учёт поставщиков" Height="450" Width="852.5" Style="{StaticResource WinFont}" Closed="Window_Closed" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="DataGrid">
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserReorderColumns" Value="False"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="ColumnWidth" Value="*"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <c:DecipheringFormOwnership x:Key="DFO"/>
+        <c:GetAddress x:Key="Address"/>
+    </Window.Resources>    
+    <Grid>
+        <TabControl>
+            <TabItem Header="Поставки">
+                <TabControl TabStripPlacement="Left" Background="#BF5324">
+                    <TabItem Header="Поставщики">
+                        <Border Background="White">
+                            <DockPanel Background="White">
+                                <Grid DockPanel.Dock="Top" Margin="0,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="6*"/>
+                                        <ColumnDefinition Width="24"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{StaticResource Button}" x:Name="Del_Supplier" Grid.Column="0" Click="DeleteSupplier">Удалить</Button>
+                                    <TextBox x:Name="Search_Supplier" Grid.Column="2" TextChanged="SearcNamehSupplier"/>
+                                    <DockPanel x:Name="Search_Tag_Supplier" Grid.Column="2" Visibility="Hidden">
+                                        <Button x:Name="Clear_SearchTag_Supplier" Click="Clear_SearchTag" Width="20" Style="{StaticResource Button}">X</Button>
+                                        <ComboBox x:Name="SearchTag_Supplier" DisplayMemberPath="NAME" SelectedValuePath="TAG_ID" SelectionChanged="SearcTaghSupplier"/>
+                                    </DockPanel>
+                                    <Path x:Name="Supplier" Grid.Column="3" HorizontalAlignment="Center" MouseDown="Toggle_SearchTag" Stroke="#BF5324" Data="M15 15L21 21M10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17Z" Fill="White" Cursor="Help"/>
+                                    <Button Style="{StaticResource Button}" x:Name="New_Supplier" Grid.Column="5" Click="NewSupplier">Создать</Button>
+                                </Grid>
+                                <DataGrid x:Name="DataGrid_Supplier" DockPanel.Dock="Bottom" FrozenColumnCount="3" MouseDoubleClick="ChangeSupplier">
+                                    <DataGrid.Columns>
+                                        <DataGridTemplateColumn Width="35">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Height="30" Click="OpenNowTime" BorderBrush="{x:Null}" Background="{x:Null}">
+                                                        <Path HorizontalAlignment="Center" Fill="#BF5324" Data="M 20.410333,23.579688 18.92599,22.15937 18.637065,22.338975 c -1.541732,0.958391 -3.273555,1.537384 -5.098951,1.704712 -0.230843,0.02116 -0.689202,0.03775 -1.043187,0.03775 -1.268766,0 -2.387579,-0.173081 -3.5707918,-0.552401 C 8.0293055,23.242162 7.2632089,22.889902 6.4188162,22.37706 L 6.0625894,22.160705 4.592098,23.567597 c -1.1803727,1.129322 -1.4840198,1.406892 -1.5390627,1.406892 -0.093516,0 -0.4215861,-0.109081 -0.5905366,-0.196349 C 2.0959938,24.588829 1.8094006,24.206874 1.7834948,23.873202 L 1.7709379,23.711452 3.1841833,22.361268 4.5974286,21.011084 4.3080124,20.715491 C 3.167856,19.551001 2.3549043,18.26643 1.8330912,16.80479 0.68497585,13.588821 1.1674837,10.066214 3.1378573,7.2792 5.0619593,4.5576354 8.0894986,2.8483951 11.521614,2.5460317 c 0.407448,-0.035895 1.533383,-0.036572 1.933294,-0.00117 2.455043,0.2173821 4.666236,1.1209687 6.479867,2.6479458 1.789526,1.5066806 3.026772,3.4940734 3.557596,5.7145715 0.453123,1.895472 0.345445,3.971432 -0.301131,5.805592 -0.197285,0.559645 -0.337631,0.881276 -0.621041,1.423245 -0.508531,0.972469 -1.139256,1.831142 -1.922434,2.617206 l -0.25604,0.256984 1.411492,1.350429 1.411492,1.350428 v 0.166962 C 23.214709,24.559268 22.761058,25 22.060057,25 H 21.894676 Z M 13.46824,21.338541 c 0.944481,-0.105176 1.852008,-0.360262 2.715345,-0.763225 0.764184,-0.356683 1.552036,-0.867964 2.043093,-1.325878 0.640792,-0.597542 0.975199,-0.975242 1.358369,-1.534228 0.697575,-1.017654 1.117834,-2.123459 1.313984,-3.457406 0.05466,-0.37175 0.04688,-1.612341 -0.01256,-2.003 C 20.708243,11.083543 20.356696,10.114744 19.763725,9.1607327 19.1659,8.198911 18.322121,7.3280623 17.348161,6.6676743 15.103016,5.1453679 12.143317,4.7841435 9.5349881,5.7140953 6.8067682,6.6867903 4.7725038,8.9724238 4.2018723,11.706212 c -0.125385,0.600697 -0.1469198,0.843116 -0.1450654,1.633018 0.00145,0.618954 0.010559,0.782279 0.061169,1.097186 0.1919567,1.194393 0.5910385,2.227931 1.2361806,3.201447 0.3615331,0.545552 0.691852,0.928729 1.2921305,1.498899 0.3263823,0.310013 0.5067316,0.457265 0.795411,0.649441 1.0572262,0.703806 1.9418665,1.105046 2.999938,1.360663 0.517876,0.125113 0.874965,0.177866 1.626633,0.240304 0.225717,0.01875 1.052955,-0.01 1.399971,-0.04863 z m -2.140303,-10.430701 0.007,-3.7588816 0.100244,-0.1940711 c 0.17245,-0.3338659 0.475221,-0.5470115 0.868744,-0.6115826 0.449644,-0.07378 0.947778,0.1537291 1.185069,0.5412445 0.156213,0.2551087 0.152563,0.183595 0.152563,2.9898777 v 2.5717471 l 2.686612,2.89e-4 c 2.158128,2.9e-4 2.712839,0.007 2.819942,0.03443 0.461424,0.118116 0.794344,0.470032 0.866503,0.915942 0.07736,0.478044 -0.195634,0.964466 -0.659205,1.174577 l -0.180632,0.08187 -3.926933,0.0067 -3.926933,0.0067 z M 23.637577,7.0705426 C 23.272047,6.3742228 22.876159,5.7863255 22.322182,5.1171646 21.99901,4.7267975 21.095458,3.8672156 20.65476,3.5308848 19.754139,2.84355 18.629557,2.2312085 17.621646,1.8793357 17.486068,1.8320039 17.37507,1.7854995 17.374984,1.7759926 17.374681,1.7398596 17.851724,1.3377098 18.081479,1.1804428 18.213476,1.0900914 18.465471,0.94715664 18.641467,0.86280994 19.899634,0.25983139 21.331887,0.2597553 22.588055,0.86259777 24.54992,1.8041121 25.478978,4.0021836 24.755521,5.990644 24.592894,6.4376337 24.253175,7.0048615 23.954515,7.3280787 L 23.838616,7.4535071 Z M 0.97289639,6.8412494 C 0.50291721,6.2770508 0.21355141,5.6801992 0.06362414,4.9657692 -0.01539056,4.5892527 -0.02198998,3.8405234 0.0504515,3.471313 0.14708448,2.9788064 0.31600475,2.5285243 0.55374225,2.1297132 1.5910583,0.38959022 3.7304045,-0.40610534 5.7337914,0.20307717 6.1016931,0.31494751 6.6715576,0.59449576 6.9750404,0.81197461 7.2445384,1.0051002 7.5883606,1.3133188 7.5883606,1.3617844 c 0,0.016039 -0.092998,0.061246 -0.2066624,0.1004606 C 4.8399846,2.3391459 2.6015009,4.2635098 1.3572474,6.6413023 1.247093,6.8518084 1.153027,7.0279006 1.1482105,7.0326183 1.1433905,7.0373341 1.0645025,6.9512197 0.97289639,6.8412494"></Path>
+                                                    </Button>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTextColumn Header="Название" Binding="{Binding NAME}"/>
+                                        <DataGridTextColumn Header="Часовой пояс" Binding="{Binding TIME_ZONE.IN_MOSCOW}"/>
+                                        <DataGridTemplateColumn Header="ИНН">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Height="30" Content="{Binding INN}" Click="OpenRegistry" Style="{StaticResource ButtonText}"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTextColumn Header="Вид собственности" Binding="{Binding FORM_OWNERSHIP, Converter={StaticResource DFO}}"/>
+                                        <DataGridTextColumn Header="Вид деятельности" Binding="{Binding TYPE_ACTIVITY.NAME}"/>
+                                        <DataGridTextColumn Header="Профиль" Binding="{Binding PROFILE.NAME}"/>
+                                        <DataGridTemplateColumn Header="Адрес">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Height="30" VerticalAlignment="Center" Click="OpenMap" Content="{Binding ADDRESS, Converter={StaticResource Address}}" Style="{StaticResource ButtonText}"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="Контакты">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Height="30" Click="OpenСontacts" Content="Контакты" Style="{StaticResource ButtonText}"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="Часы работы">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Click="OpenOpeningHours" Content="Часы" Style="{StaticResource ButtonText}"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </DockPanel>
+                        </Border>
+                    </TabItem>
+
+                    <TabItem Header="Договоры&#x0a;на поставку">
+                        <Border Background="White">
+                            <DockPanel>
+                                <Grid DockPanel.Dock="Top" Margin="0,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="6*"/>
+                                        <ColumnDefinition Width="24"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{StaticResource Button}" x:Name="Del_DeliveryContract" Grid.Column="0" Click="DeleteDeliveryContract">Удалить</Button>
+                                    <TextBox x:Name="Search_DeliveryContract" Grid.Column="2" TextChanged="SearchNameDeliveryContract" />
+                                    <DockPanel x:Name="Search_Tag_DeliveryContract" Grid.Column="2" Visibility="Hidden">
+                                        <Button x:Name="Clear_SearchTag_DeliveryContract" Click="Clear_SearchTag" Width="20" Style="{StaticResource Button}">X</Button>
+                                        <ComboBox x:Name="SearchTag_DeliveryContract" DisplayMemberPath="NAME" SelectedValuePath="TAG_ID" SelectionChanged="SearchTagDeliveryContract"/>
+                                    </DockPanel>
+                                    <Path x:Name="DeliveryContract" Grid.Column="3" HorizontalAlignment="Center" MouseDown="Toggle_SearchTag" Stroke="#BF5324" Data="M15 15L21 21M10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17Z" Fill="White"/>
+                                    <Button Style="{StaticResource Button}" x:Name="New_DeliveryContract" Grid.Column="5" Click="NewDeliveryContract">Создать</Button>
+                                </Grid>
+                                <DataGrid x:Name="DataGrid_DeliveryContract" ColumnWidth="*" MouseDoubleClick="ChangeDeliveryContract">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Номер" Binding="{Binding NUMBER}"/>
+                                        <DataGridTextColumn Header="Поставщик" Binding="{Binding SUPPLIER.NAME}"/>
+                                        <DataGridTextColumn Header="Дата оформления" Binding="{Binding DATE, StringFormat=dd.MM.yyyy}"/>
+                                        <DataGridTextColumn Header="Крайняя дата" Binding="{Binding DATE_FINISH, StringFormat=dd.MM.yyyy}"/>
+                                        <DataGridTextColumn Header="Комментарий" Binding="{Binding COMMENT}"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </DockPanel>
+                        </Border>
+                    </TabItem>
+
+                    <TabItem Header="Приходные&#x0a;накладные">
+                        <Border Background="White">
+                            <DockPanel>
+                                <Grid DockPanel.Dock="Top" Margin="0,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="6*"/>
+                                        <ColumnDefinition Width="24"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{StaticResource Button}" x:Name="Del_PurchaseInvoice" Grid.Column="0" Click="DeletePurchaseInvoice">Удалить</Button>
+                                    <TextBox x:Name="Search_PurchaseInvoice" Grid.Column="2" TextChanged="SearchNamePurchaseInvoice"/>
+                                    <DockPanel x:Name="Search_Tag_PurchaseInvoice" Grid.Column="2" Visibility="Hidden">
+                                        <Button x:Name="Clear_SearchTag_PurchaseInvoice" Click="Clear_SearchTag" Width="20" Style="{StaticResource Button}">X</Button>
+                                        <ComboBox x:Name="SearchTag_PurchaseInvoice" DisplayMemberPath="NAME" SelectedValuePath="TAG_ID" SelectionChanged="SearchTagPurchaseInvoice"/>
+                                    </DockPanel>
+                                    <Path x:Name="PurchaseInvoice" Grid.Column="3" HorizontalAlignment="Center" MouseDown="Toggle_SearchTag" Stroke="#BF5324" Data="M15 15L21 21M10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17Z" Fill="White"/>
+                                    <Button Style="{StaticResource Button}" x:Name="New_PurchaseInvoice" Grid.Column="5" Click="NewPurchaseInvoice">Создать</Button>
+                                </Grid>
+                                <DataGrid x:Name="DataGrid_PurchaseInvoice" ColumnWidth="*" MouseDoubleClick="ChangePurchaseInvoice">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Номер" Binding="{Binding NUMBER}"/>
+                                        <DataGridTextColumn Header="Договор" Binding="{Binding DELIVERY_CONTRACT.NUMBER}"/>
+                                        <DataGridTextColumn Header="Поставщик" Binding="{Binding DELIVERY_CONTRACT.SUPPLIER.NAME}"/>
+                                        <DataGridTextColumn Header="Дата оформления" Binding="{Binding DATE, StringFormat=dd.MM.yyyy}"/>
+                                        <DataGridTextColumn Header="Качество" Binding="{Binding QUALITY.NAME}"/>
+                                        <DataGridTextColumn Header="Статус" Binding="{Binding STATUS.NAME}"/>
+                                        <DataGridTextColumn Header="Комментарий" Binding="{Binding COMMENT}"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                <TextBlock x:Name="PurchaseInvoice_ID" Visibility="Hidden"/>
+                            </DockPanel>
+                        </Border>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+
+            <TabItem Header="Рейтинг">
+                <DataGrid x:Name="DataGrid_RSupplier" ColumnWidth="*">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Рейтинг" Binding="{Binding RATING}" Width="60"/>
+                        <DataGridTextColumn Header="Название" Binding="{Binding NAME}"/>
+                        <DataGridTextColumn Header="ИНН" Binding="{Binding INN}"/>
+                        <DataGridTextColumn Header="Вид деятельности" Binding="{Binding TYPE_ACTIVITY}"/>
+                        <DataGridTextColumn Header="Профиль" Binding="{Binding PROFILE}"/>
+                        <DataGridTextColumn Header="Доставки в срок" Binding="{Binding DeliveryOnTime}"/>
+                        <DataGridTextColumn Header="Доставки не в срок" Binding="{Binding DeliveryNotOnTime}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Пользователи" x:Name="Users">
+                <Border>
+                    <DockPanel>
+                        <Grid DockPanel.Dock="Top" Margin="0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="6*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Style="{StaticResource Button}" x:Name="NotAct_User" Grid.Column="1" Click="NotAct">Деактивировать</Button>
+                            <Button Style="{StaticResource Button}" x:Name="Act_User" Grid.Column="3" Click="Act">Активировать</Button>
+                        </Grid>
+                        <DataGrid x:Name="DataGrid_User" ColumnWidth="*">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ФИО" Binding="{Binding FIO}"/>
+                                <DataGridTextColumn Header="Логин" Binding="{Binding LOGIN}"/>
+                                <DataGridTextColumn Header="Пароль" Binding="{Binding PASSWORD}"/>
+                                <DataGridTextColumn Header="Роль" Binding="{Binding ROLE.NAME}"/>
+                                <DataGridTextColumn Header="Последняя активность" Binding="{Binding LAST_ACTIVITY, StringFormat=dd.MM.yyyy}"/>
+                                <DataGridTextColumn Header="Статус" Binding="{Binding STATUS}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DockPanel>
+                </Border>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

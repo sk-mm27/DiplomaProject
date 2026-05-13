@@ -1,0 +1,97 @@
+﻿<Window x:Class="SUPPLIERS.Windows.WinDeliveryContract"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SUPPLIERS.Windows"        
+        xmlns:vm="clr-namespace:SUPPLIERS.Model"
+        mc:Ignorable="d"
+        Title="Договор на поставку" Height="330" Width="630" Style="{StaticResource WinFont}" WindowStartupLocation="CenterScreen">
+    <ScrollViewer>
+        <Border Padding="5" MaxWidth="700">
+            <StackPanel>
+                <TextBlock HorizontalAlignment="Center" Style="{StaticResource Title}">Договор на поставку</TextBlock>
+                <Separator Background="#BF5324"></Separator>
+                <DockPanel Margin="5">
+                    <TextBlock Width="120" Style="{StaticResource label}">Номер</TextBlock>
+                    <TextBox x:Name="NUMBER"></TextBox>
+                </DockPanel>
+                <Grid  Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="20" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Width="auto" Grid.Column="0" Style="{StaticResource label}">Поставщик</TextBlock>
+                    <ComboBox x:Name="SUPPLIER" Width="auto" Grid.Column="1" DisplayMemberPath="NAME" SelectedValuePath="SUPPLIER_ID"></ComboBox>
+                    <Button Style="{StaticResource Button}" x:Name="New_Supplier" Width="auto" Grid.Column="2" Click="NewSupplier">+</Button>
+                </Grid>
+                <DockPanel Margin="5" LastChildFill="True">
+                    <TextBlock Width="120" Style="{StaticResource label}">Дата оформления</TextBlock>
+                    <DatePicker x:Name="DATE"></DatePicker>
+                </DockPanel>
+                <DockPanel Margin="5" LastChildFill="True">
+                    <TextBlock Width="120" Style="{StaticResource label}">Крайняя дата</TextBlock>
+                    <DatePicker x:Name="DATE_FINISH"></DatePicker>
+                </DockPanel>
+                <DockPanel Margin="5">
+                    <TextBlock Width="120" Style="{StaticResource label}">Комментарий</TextBlock>
+                    <TextBox x:Name="COMMENT" Height="90"></TextBox>
+                </DockPanel>
+                <Expander Header="Теги">
+                    <Border Margin="5,10,5,5" BorderBrush="Black" BorderThickness="1" Padding="5" Height="100" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <DataGrid x:Name="DataGrid_Tag" Style="{StaticResource GridStyle}" ColumnWidth="*" Grid.Column="0">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Header="Тег">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding NAME}" Background="{Binding COLOR}"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                                <Grid Margin="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="20" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Width="auto" Grid.Column="0">Тег</TextBlock>
+                                    <ComboBox x:Name="TAG" Width="auto" Grid.Column="1" DisplayMemberPath="NAME" SelectedValuePath="TAG_ID"></ComboBox>
+                                    <Button x:Name="New_Tag" Width="auto" Grid.Column="2" Click="NewTag">+</Button>
+                                </Grid>
+                                <Grid Margin="20,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{StaticResource Button}" Width="100" Grid.Column="0" Click="DelTag">Удалить</Button>
+                                    <Button Style="{StaticResource Button}" Width="100" Grid.Column="2" Click="AddTag">Добавить</Button>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </Expander>
+
+                <Grid Margin="20,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Width="100" Grid.Column="0" Click="ButtonClose" Style="{StaticResource Button}" >Отмена</Button>
+                    <Button Width="100" Grid.Column="2" Click="Save" Style="{StaticResource Button}">Сохранить</Button>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </ScrollViewer>
+</Window>

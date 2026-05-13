@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SUPPLIERS", "SUPPLIERS\SUPPLIERS.csproj", "{116FD5B8-774A-4988-8CD2-C3126C6DF7EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{116FD5B8-774A-4988-8CD2-C3126C6DF7EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{116FD5B8-774A-4988-8CD2-C3126C6DF7EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{116FD5B8-774A-4988-8CD2-C3126C6DF7EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{116FD5B8-774A-4988-8CD2-C3126C6DF7EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D52A411E-F5B6-4E90-A79A-4984A460EE2E}
+	EndGlobalSection
+EndGlobal

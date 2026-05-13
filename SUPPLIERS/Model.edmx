@@ -1,0 +1,1524 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище AMBITModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DELIVERY_CONTRACT">
+          <Key>
+            <PropertyRef Name="DELIVERY_CONTRACT_ID" />
+          </Key>
+          <Property Name="DELIVERY_CONTRACT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NUMBER" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="FK_SUPPLIER_ID" Type="int" Nullable="false" />
+          <Property Name="DATE" Type="date" Nullable="false" />
+          <Property Name="DATE_FINISH" Type="date" Nullable="false" />
+          <Property Name="COMMENT" Type="nvarchar(max)" />
+          <Property Name="FK_USER_ID_CREATOR" Type="int" Nullable="false" />
+          <Property Name="DATE_CREATION" Type="date" Nullable="false" />
+          <Property Name="FK_USER_ID_CHANGED" Type="int" />
+          <Property Name="DATE_CHANGE" Type="date" />
+        </EntityType>
+        <EntityType Name="EMAIL">
+          <Key>
+            <PropertyRef Name="EMAIL_ID" />
+          </Key>
+          <Property Name="EMAIL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_SUPPLIER_ID" Type="int" Nullable="false" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="COMMENT" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="OPENING_HOURS">
+          <Key>
+            <PropertyRef Name="OPENING_HOURS_ID" />
+          </Key>
+          <Property Name="OPENING_HOURS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_SUPPLIER_ID" Type="int" Nullable="false" />
+          <Property Name="DAY" Type="int" Nullable="false" />
+          <Property Name="START" Type="time" Precision="7" />
+          <Property Name="END" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="PHONE">
+          <Key>
+            <PropertyRef Name="PHONE_ID" />
+          </Key>
+          <Property Name="PHONE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_SUPPLIER_ID" Type="int" Nullable="false" />
+          <Property Name="FK_PHONE_FORMAT_ID" Type="int" Nullable="false" />
+          <Property Name="NUMBER" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="COMMENT" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PHONE_FORMAT">
+          <Key>
+            <PropertyRef Name="PHONE_FORMAT_ID" />
+          </Key>
+          <Property Name="PHONE_FORMAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FORMAT" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FLAG" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROFILE">
+          <Key>
+            <PropertyRef Name="PROFILE_ID" />
+          </Key>
+          <Property Name="PROFILE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PURCHASE_INVOICE">
+          <Key>
+            <PropertyRef Name="PURCHASE_INVOICE_ID" />
+          </Key>
+          <Property Name="PURCHASE_INVOICE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NUMBER" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="FK_DELIVERY_CONTRACT_ID" Type="int" Nullable="false" />
+          <Property Name="DATE" Type="date" Nullable="false" />
+          <Property Name="FK_QUALITY_ID" Type="int" Nullable="false" />
+          <Property Name="FK_STATUS_ID" Type="int" Nullable="false" />
+          <Property Name="COMMENT" Type="nvarchar(max)" />
+          <Property Name="FK_USER_ID_CREATOR" Type="int" Nullable="false" />
+          <Property Name="DATE_CREATION" Type="date" Nullable="false" />
+          <Property Name="FK_USER_ID_CHANGED" Type="int" />
+          <Property Name="DATE_CHANGE" Type="date" />
+        </EntityType>
+        <EntityType Name="QUALITY">
+          <Key>
+            <PropertyRef Name="QUALITY_ID" />
+          </Key>
+          <Property Name="QUALITY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="ROLE_ID" />
+          </Key>
+          <Property Name="ROLE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STATUS">
+          <Key>
+            <PropertyRef Name="STATUS_ID" />
+          </Key>
+          <Property Name="STATUS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SUPPLIER">
+          <Key>
+            <PropertyRef Name="SUPPLIER_ID" />
+          </Key>
+          <Property Name="SUPPLIER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="FK_TIME_ZONE_ID" Type="int" Nullable="false" />
+          <Property Name="INN" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="FORM_OWNERSHIP" Type="bit" Nullable="false" />
+          <Property Name="FK_TYPE_ACTIVITY_ID" Type="int" Nullable="false" />
+          <Property Name="FK_PROFILE_ID" Type="int" Nullable="false" />
+          <Property Name="ADDRESS" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FK_USER_ID_CREATOR" Type="int" Nullable="false" />
+          <Property Name="DATE_CREATION" Type="date" Nullable="false" />
+          <Property Name="FK_USER_ID_CHANGED" Type="int" />
+          <Property Name="DATE_CHANGE" Type="date" />
+        </EntityType>
+        <EntityType Name="TAG">
+          <Key>
+            <PropertyRef Name="TAG_ID" />
+          </Key>
+          <Property Name="TAG_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="COLOR" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="FK_USER_ID_CREATOR" Type="int" Nullable="false" />
+          <Property Name="DATE_CREATION" Type="date" Nullable="false" />
+          <Property Name="FK_USER_ID_CHANGED" Type="int" />
+          <Property Name="DATE_CHANGE" Type="date" />
+        </EntityType>
+        <EntityType Name="TAG_DELIVERY_CONTRACT">
+          <Key>
+            <PropertyRef Name="TAG_DELIVERY_CONTRACT_ID" />
+          </Key>
+          <Property Name="TAG_DELIVERY_CONTRACT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_DELIVERY_CONTRACT_ID" Type="int" Nullable="false" />
+          <Property Name="FK_TAG_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TAG_PURCHASE_INVOICE">
+          <Key>
+            <PropertyRef Name="TAG_PURCHASE_INVOICE_ID" />
+          </Key>
+          <Property Name="TAG_PURCHASE_INVOICE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_PURCHASE_INVOICE_ID" Type="int" Nullable="false" />
+          <Property Name="FK_TAG_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TAG_SUPPLIER">
+          <Key>
+            <PropertyRef Name="TAG_SUPPLIER_ID" />
+          </Key>
+          <Property Name="TAG_SUPPLIER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_SUPPLIER_ID" Type="int" Nullable="false" />
+          <Property Name="FK_TAG_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIME_ZONE">
+          <Key>
+            <PropertyRef Name="TIME_ZONE_ID" />
+          </Key>
+          <Property Name="TIME_ZONE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GLOBAL" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="IN_MOSCOW" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="VALUE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TYPE_ACTIVITY">
+          <Key>
+            <PropertyRef Name="TYPE_ACTIVITY_ID" />
+          </Key>
+          <Property Name="TYPE_ACTIVITY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="LOGIN" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="PASSWORD" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="FK_ROLE_ID" Type="int" Nullable="false" />
+          <Property Name="LAST_ACTIVITY" Type="date" />
+          <Property Name="STATUS" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__DELIVERY___FK_SU__4CA06362">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="DELIVERY_CONTRACT" Type="Self.DELIVERY_CONTRACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="SUPPLIER_ID" />
+            </Principal>
+            <Dependent Role="DELIVERY_CONTRACT">
+              <PropertyRef Name="FK_SUPPLIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DELIVERY___FK_US__4D94879B">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="DELIVERY_CONTRACT" Type="Self.DELIVERY_CONTRACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="DELIVERY_CONTRACT">
+              <PropertyRef Name="FK_USER_ID_CREATOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DELIVERY___FK_US__4E88ABD4">
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="DELIVERY_CONTRACT" Type="Self.DELIVERY_CONTRACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="DELIVERY_CONTRACT">
+              <PropertyRef Name="FK_USER_ID_CHANGED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMAIL__FK_SUPPLI__3F466844">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="EMAIL" Type="Self.EMAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="SUPPLIER_ID" />
+            </Principal>
+            <Dependent Role="EMAIL">
+              <PropertyRef Name="FK_SUPPLIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OPENING_H__FK_SU__49C3F6B7">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="OPENING_HOURS" Type="Self.OPENING_HOURS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="SUPPLIER_ID" />
+            </Principal>
+            <Dependent Role="OPENING_HOURS">
+              <PropertyRef Name="FK_SUPPLIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHONE__FK_PHONE___3C69FB99">
+          <End Role="PHONE_FORMAT" Type="Self.PHONE_FORMAT" Multiplicity="1" />
+          <End Role="PHONE" Type="Self.PHONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONE_FORMAT">
+              <PropertyRef Name="PHONE_FORMAT_ID" />
+            </Principal>
+            <Dependent Role="PHONE">
+              <PropertyRef Name="FK_PHONE_FORMAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHONE__FK_SUPPLI__3B75D760">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="PHONE" Type="Self.PHONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="SUPPLIER_ID" />
+            </Principal>
+            <Dependent Role="PHONE">
+              <PropertyRef Name="FK_SUPPLIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PURCHASE___FK_DE__5535A963">
+          <End Role="DELIVERY_CONTRACT" Type="Self.DELIVERY_CONTRACT" Multiplicity="1" />
+          <End Role="PURCHASE_INVOICE" Type="Self.PURCHASE_INVOICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DELIVERY_CONTRACT">
+              <PropertyRef Name="DELIVERY_CONTRACT_ID" />
+            </Principal>
+            <Dependent Role="PURCHASE_INVOICE">
+              <PropertyRef Name="FK_DELIVERY_CONTRACT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PURCHASE___FK_QU__5629CD9C">
+          <End Role="QUALITY" Type="Self.QUALITY" Multiplicity="1" />
+          <End Role="PURCHASE_INVOICE" Type="Self.PURCHASE_INVOICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUALITY">
+              <PropertyRef Name="QUALITY_ID" />
+            </Principal>
+            <Dependent Role="PURCHASE_INVOICE">
+              <PropertyRef Name="FK_QUALITY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PURCHASE___FK_ST__571DF1D5">
+          <End Role="STATUS" Type="Self.STATUS" Multiplicity="1" />
+          <End Role="PURCHASE_INVOICE" Type="Self.PURCHASE_INVOICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUS">
+              <PropertyRef Name="STATUS_ID" />
+            </Principal>
+            <Dependent Role="PURCHASE_INVOICE">
+              <PropertyRef Name="FK_STATUS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PURCHASE___FK_US__5812160E">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="PURCHASE_INVOICE" Type="Self.PURCHASE_INVOICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="PURCHASE_INVOICE">
+              <PropertyRef Name="FK_USER_ID_CREATOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PURCHASE___FK_US__59063A47">
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="PURCHASE_INVOICE" Type="Self.PURCHASE_INVOICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="PURCHASE_INVOICE">
+              <PropertyRef Name="FK_USER_ID_CHANGED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SUPPLIER__FK_PRO__36B12243">
+          <End Role="PROFILE" Type="Self.PROFILE" Multiplicity="1" />
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFILE">
+              <PropertyRef Name="PROFILE_ID" />
+            </Principal>
+            <Dependent Role="SUPPLIER">
+              <PropertyRef Name="FK_PROFILE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SUPPLIER__FK_TIM__34C8D9D1">
+          <End Role="TIME_ZONE" Type="Self.TIME_ZONE" Multiplicity="1" />
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIME_ZONE">
+              <PropertyRef Name="TIME_ZONE_ID" />
+            </Principal>
+            <Dependent Role="SUPPLIER">
+              <PropertyRef Name="FK_TIME_ZONE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SUPPLIER__FK_TYP__35BCFE0A">
+          <End Role="TYPE_ACTIVITY" Type="Self.TYPE_ACTIVITY" Multiplicity="1" />
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_ACTIVITY">
+              <PropertyRef Name="TYPE_ACTIVITY_ID" />
+            </Principal>
+            <Dependent Role="SUPPLIER">
+              <PropertyRef Name="FK_TYPE_ACTIVITY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SUPPLIER__FK_USE__37A5467C">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="SUPPLIER">
+              <PropertyRef Name="FK_USER_ID_CREATOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SUPPLIER__FK_USE__38996AB5">
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="SUPPLIER">
+              <PropertyRef Name="FK_USER_ID_CHANGED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG__FK_USER_ID___4222D4EF">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="TAG" Type="Self.TAG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="TAG">
+              <PropertyRef Name="FK_USER_ID_CREATOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG__FK_USER_ID___4316F928">
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="TAG" Type="Self.TAG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="TAG">
+              <PropertyRef Name="FK_USER_ID_CHANGED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG_DELIV__FK_DE__5165187F">
+          <End Role="DELIVERY_CONTRACT" Type="Self.DELIVERY_CONTRACT" Multiplicity="1" />
+          <End Role="TAG_DELIVERY_CONTRACT" Type="Self.TAG_DELIVERY_CONTRACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DELIVERY_CONTRACT">
+              <PropertyRef Name="DELIVERY_CONTRACT_ID" />
+            </Principal>
+            <Dependent Role="TAG_DELIVERY_CONTRACT">
+              <PropertyRef Name="FK_DELIVERY_CONTRACT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG_DELIV__FK_TA__52593CB8">
+          <End Role="TAG" Type="Self.TAG" Multiplicity="1" />
+          <End Role="TAG_DELIVERY_CONTRACT" Type="Self.TAG_DELIVERY_CONTRACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAG">
+              <PropertyRef Name="TAG_ID" />
+            </Principal>
+            <Dependent Role="TAG_DELIVERY_CONTRACT">
+              <PropertyRef Name="FK_TAG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG_PURCH__FK_PU__5BE2A6F2">
+          <End Role="PURCHASE_INVOICE" Type="Self.PURCHASE_INVOICE" Multiplicity="1" />
+          <End Role="TAG_PURCHASE_INVOICE" Type="Self.TAG_PURCHASE_INVOICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PURCHASE_INVOICE">
+              <PropertyRef Name="PURCHASE_INVOICE_ID" />
+            </Principal>
+            <Dependent Role="TAG_PURCHASE_INVOICE">
+              <PropertyRef Name="FK_PURCHASE_INVOICE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG_PURCH__FK_TA__5CD6CB2B">
+          <End Role="TAG" Type="Self.TAG" Multiplicity="1" />
+          <End Role="TAG_PURCHASE_INVOICE" Type="Self.TAG_PURCHASE_INVOICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAG">
+              <PropertyRef Name="TAG_ID" />
+            </Principal>
+            <Dependent Role="TAG_PURCHASE_INVOICE">
+              <PropertyRef Name="FK_TAG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG_SUPPL__FK_SU__45F365D3">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="TAG_SUPPLIER" Type="Self.TAG_SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="SUPPLIER_ID" />
+            </Principal>
+            <Dependent Role="TAG_SUPPLIER">
+              <PropertyRef Name="FK_SUPPLIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG_SUPPL__FK_TA__46E78A0C">
+          <End Role="TAG" Type="Self.TAG" Multiplicity="1" />
+          <End Role="TAG_SUPPLIER" Type="Self.TAG_SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAG">
+              <PropertyRef Name="TAG_ID" />
+            </Principal>
+            <Dependent Role="TAG_SUPPLIER">
+              <PropertyRef Name="FK_TAG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USER__FK_ROLE_ID__31EC6D26">
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLE">
+              <PropertyRef Name="ROLE_ID" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="FK_ROLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище AMBITModelContainer">
+          <EntitySet Name="DELIVERY_CONTRACT" EntityType="Self.DELIVERY_CONTRACT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMAIL" EntityType="Self.EMAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OPENING_HOURS" EntityType="Self.OPENING_HOURS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHONE" EntityType="Self.PHONE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHONE_FORMAT" EntityType="Self.PHONE_FORMAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROFILE" EntityType="Self.PROFILE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PURCHASE_INVOICE" EntityType="Self.PURCHASE_INVOICE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QUALITY" EntityType="Self.QUALITY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROLE" EntityType="Self.ROLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATUS" EntityType="Self.STATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUPPLIER" EntityType="Self.SUPPLIER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAG" EntityType="Self.TAG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAG_DELIVERY_CONTRACT" EntityType="Self.TAG_DELIVERY_CONTRACT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAG_PURCHASE_INVOICE" EntityType="Self.TAG_PURCHASE_INVOICE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAG_SUPPLIER" EntityType="Self.TAG_SUPPLIER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIME_ZONE" EntityType="Self.TIME_ZONE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TYPE_ACTIVITY" EntityType="Self.TYPE_ACTIVITY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__DELIVERY___FK_SU__4CA06362" Association="Self.FK__DELIVERY___FK_SU__4CA06362">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="DELIVERY_CONTRACT" EntitySet="DELIVERY_CONTRACT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DELIVERY___FK_US__4D94879B" Association="Self.FK__DELIVERY___FK_US__4D94879B">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="DELIVERY_CONTRACT" EntitySet="DELIVERY_CONTRACT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DELIVERY___FK_US__4E88ABD4" Association="Self.FK__DELIVERY___FK_US__4E88ABD4">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="DELIVERY_CONTRACT" EntitySet="DELIVERY_CONTRACT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMAIL__FK_SUPPLI__3F466844" Association="Self.FK__EMAIL__FK_SUPPLI__3F466844">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="EMAIL" EntitySet="EMAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OPENING_H__FK_SU__49C3F6B7" Association="Self.FK__OPENING_H__FK_SU__49C3F6B7">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="OPENING_HOURS" EntitySet="OPENING_HOURS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHONE__FK_PHONE___3C69FB99" Association="Self.FK__PHONE__FK_PHONE___3C69FB99">
+            <End Role="PHONE_FORMAT" EntitySet="PHONE_FORMAT" />
+            <End Role="PHONE" EntitySet="PHONE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHONE__FK_SUPPLI__3B75D760" Association="Self.FK__PHONE__FK_SUPPLI__3B75D760">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="PHONE" EntitySet="PHONE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PURCHASE___FK_DE__5535A963" Association="Self.FK__PURCHASE___FK_DE__5535A963">
+            <End Role="DELIVERY_CONTRACT" EntitySet="DELIVERY_CONTRACT" />
+            <End Role="PURCHASE_INVOICE" EntitySet="PURCHASE_INVOICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PURCHASE___FK_QU__5629CD9C" Association="Self.FK__PURCHASE___FK_QU__5629CD9C">
+            <End Role="QUALITY" EntitySet="QUALITY" />
+            <End Role="PURCHASE_INVOICE" EntitySet="PURCHASE_INVOICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PURCHASE___FK_ST__571DF1D5" Association="Self.FK__PURCHASE___FK_ST__571DF1D5">
+            <End Role="STATUS" EntitySet="STATUS" />
+            <End Role="PURCHASE_INVOICE" EntitySet="PURCHASE_INVOICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PURCHASE___FK_US__5812160E" Association="Self.FK__PURCHASE___FK_US__5812160E">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="PURCHASE_INVOICE" EntitySet="PURCHASE_INVOICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PURCHASE___FK_US__59063A47" Association="Self.FK__PURCHASE___FK_US__59063A47">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="PURCHASE_INVOICE" EntitySet="PURCHASE_INVOICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SUPPLIER__FK_PRO__36B12243" Association="Self.FK__SUPPLIER__FK_PRO__36B12243">
+            <End Role="PROFILE" EntitySet="PROFILE" />
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SUPPLIER__FK_TIM__34C8D9D1" Association="Self.FK__SUPPLIER__FK_TIM__34C8D9D1">
+            <End Role="TIME_ZONE" EntitySet="TIME_ZONE" />
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SUPPLIER__FK_TYP__35BCFE0A" Association="Self.FK__SUPPLIER__FK_TYP__35BCFE0A">
+            <End Role="TYPE_ACTIVITY" EntitySet="TYPE_ACTIVITY" />
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SUPPLIER__FK_USE__37A5467C" Association="Self.FK__SUPPLIER__FK_USE__37A5467C">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SUPPLIER__FK_USE__38996AB5" Association="Self.FK__SUPPLIER__FK_USE__38996AB5">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG__FK_USER_ID___4222D4EF" Association="Self.FK__TAG__FK_USER_ID___4222D4EF">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="TAG" EntitySet="TAG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG__FK_USER_ID___4316F928" Association="Self.FK__TAG__FK_USER_ID___4316F928">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="TAG" EntitySet="TAG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG_DELIV__FK_DE__5165187F" Association="Self.FK__TAG_DELIV__FK_DE__5165187F">
+            <End Role="DELIVERY_CONTRACT" EntitySet="DELIVERY_CONTRACT" />
+            <End Role="TAG_DELIVERY_CONTRACT" EntitySet="TAG_DELIVERY_CONTRACT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG_DELIV__FK_TA__52593CB8" Association="Self.FK__TAG_DELIV__FK_TA__52593CB8">
+            <End Role="TAG" EntitySet="TAG" />
+            <End Role="TAG_DELIVERY_CONTRACT" EntitySet="TAG_DELIVERY_CONTRACT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG_PURCH__FK_PU__5BE2A6F2" Association="Self.FK__TAG_PURCH__FK_PU__5BE2A6F2">
+            <End Role="PURCHASE_INVOICE" EntitySet="PURCHASE_INVOICE" />
+            <End Role="TAG_PURCHASE_INVOICE" EntitySet="TAG_PURCHASE_INVOICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG_PURCH__FK_TA__5CD6CB2B" Association="Self.FK__TAG_PURCH__FK_TA__5CD6CB2B">
+            <End Role="TAG" EntitySet="TAG" />
+            <End Role="TAG_PURCHASE_INVOICE" EntitySet="TAG_PURCHASE_INVOICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG_SUPPL__FK_SU__45F365D3" Association="Self.FK__TAG_SUPPL__FK_SU__45F365D3">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="TAG_SUPPLIER" EntitySet="TAG_SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG_SUPPL__FK_TA__46E78A0C" Association="Self.FK__TAG_SUPPL__FK_TA__46E78A0C">
+            <End Role="TAG" EntitySet="TAG" />
+            <End Role="TAG_SUPPLIER" EntitySet="TAG_SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USER__FK_ROLE_ID__31EC6D26" Association="Self.FK__USER__FK_ROLE_ID__31EC6D26">
+            <End Role="ROLE" EntitySet="ROLE" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AMBITModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DELIVERY_CONTRACT">
+          <Key>
+            <PropertyRef Name="DELIVERY_CONTRACT_ID" />
+          </Key>
+          <Property Name="DELIVERY_CONTRACT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NUMBER" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FK_SUPPLIER_ID" Type="Int32" Nullable="false" />
+          <Property Name="DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DATE_FINISH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FK_USER_ID_CREATOR" Type="Int32" Nullable="false" />
+          <Property Name="DATE_CREATION" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FK_USER_ID_CHANGED" Type="Int32" />
+          <Property Name="DATE_CHANGE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="SUPPLIER" Relationship="Self.FK__DELIVERY___FK_SU__4CA06362" FromRole="DELIVERY_CONTRACT" ToRole="SUPPLIER" />
+          <NavigationProperty Name="USER" Relationship="Self.FK__DELIVERY___FK_US__4D94879B" FromRole="DELIVERY_CONTRACT" ToRole="USER" />
+          <NavigationProperty Name="USER1" Relationship="Self.FK__DELIVERY___FK_US__4E88ABD4" FromRole="DELIVERY_CONTRACT" ToRole="USER" />
+          <NavigationProperty Name="PURCHASE_INVOICE" Relationship="Self.FK__PURCHASE___FK_DE__5535A963" FromRole="DELIVERY_CONTRACT" ToRole="PURCHASE_INVOICE" />
+          <NavigationProperty Name="TAG_DELIVERY_CONTRACT" Relationship="Self.FK__TAG_DELIV__FK_DE__5165187F" FromRole="DELIVERY_CONTRACT" ToRole="TAG_DELIVERY_CONTRACT" />
+        </EntityType>
+        <EntityType Name="EMAIL">
+          <Key>
+            <PropertyRef Name="EMAIL_ID" />
+          </Key>
+          <Property Name="EMAIL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_SUPPLIER_ID" Type="Int32" Nullable="false" />
+          <Property Name="EMAIL1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SUPPLIER" Relationship="Self.FK__EMAIL__FK_SUPPLI__3F466844" FromRole="EMAIL" ToRole="SUPPLIER" />
+        </EntityType>
+        <EntityType Name="OPENING_HOURS">
+          <Key>
+            <PropertyRef Name="OPENING_HOURS_ID" />
+          </Key>
+          <Property Name="OPENING_HOURS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_SUPPLIER_ID" Type="Int32" Nullable="false" />
+          <Property Name="DAY" Type="Int32" Nullable="false" />
+          <Property Name="START" Type="Time" Precision="7" />
+          <Property Name="END" Type="Time" Precision="7" />
+          <NavigationProperty Name="SUPPLIER" Relationship="Self.FK__OPENING_H__FK_SU__49C3F6B7" FromRole="OPENING_HOURS" ToRole="SUPPLIER" />
+        </EntityType>
+        <EntityType Name="PHONE">
+          <Key>
+            <PropertyRef Name="PHONE_ID" />
+          </Key>
+          <Property Name="PHONE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_SUPPLIER_ID" Type="Int32" Nullable="false" />
+          <Property Name="FK_PHONE_FORMAT_ID" Type="Int32" Nullable="false" />
+          <Property Name="NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PHONE_FORMAT" Relationship="Self.FK__PHONE__FK_PHONE___3C69FB99" FromRole="PHONE" ToRole="PHONE_FORMAT" />
+          <NavigationProperty Name="SUPPLIER" Relationship="Self.FK__PHONE__FK_SUPPLI__3B75D760" FromRole="PHONE" ToRole="SUPPLIER" />
+        </EntityType>
+        <EntityType Name="PHONE_FORMAT">
+          <Key>
+            <PropertyRef Name="PHONE_FORMAT_ID" />
+          </Key>
+          <Property Name="PHONE_FORMAT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FORMAT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FLAG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PHONE" Relationship="Self.FK__PHONE__FK_PHONE___3C69FB99" FromRole="PHONE_FORMAT" ToRole="PHONE" />
+        </EntityType>
+        <EntityType Name="PROFILE">
+          <Key>
+            <PropertyRef Name="PROFILE_ID" />
+          </Key>
+          <Property Name="PROFILE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SUPPLIER" Relationship="Self.FK__SUPPLIER__FK_PRO__36B12243" FromRole="PROFILE" ToRole="SUPPLIER" />
+        </EntityType>
+        <EntityType Name="PURCHASE_INVOICE">
+          <Key>
+            <PropertyRef Name="PURCHASE_INVOICE_ID" />
+          </Key>
+          <Property Name="PURCHASE_INVOICE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NUMBER" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FK_DELIVERY_CONTRACT_ID" Type="Int32" Nullable="false" />
+          <Property Name="DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FK_QUALITY_ID" Type="Int32" Nullable="false" />
+          <Property Name="FK_STATUS_ID" Type="Int32" Nullable="false" />
+          <Property Name="COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FK_USER_ID_CREATOR" Type="Int32" Nullable="false" />
+          <Property Name="DATE_CREATION" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FK_USER_ID_CHANGED" Type="Int32" />
+          <Property Name="DATE_CHANGE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="DELIVERY_CONTRACT" Relationship="Self.FK__PURCHASE___FK_DE__5535A963" FromRole="PURCHASE_INVOICE" ToRole="DELIVERY_CONTRACT" />
+          <NavigationProperty Name="QUALITY" Relationship="Self.FK__PURCHASE___FK_QU__5629CD9C" FromRole="PURCHASE_INVOICE" ToRole="QUALITY" />
+          <NavigationProperty Name="STATUS" Relationship="Self.FK__PURCHASE___FK_ST__571DF1D5" FromRole="PURCHASE_INVOICE" ToRole="STATUS" />
+          <NavigationProperty Name="USER" Relationship="Self.FK__PURCHASE___FK_US__5812160E" FromRole="PURCHASE_INVOICE" ToRole="USER" />
+          <NavigationProperty Name="USER1" Relationship="Self.FK__PURCHASE___FK_US__59063A47" FromRole="PURCHASE_INVOICE" ToRole="USER" />
+          <NavigationProperty Name="TAG_PURCHASE_INVOICE" Relationship="Self.FK__TAG_PURCH__FK_PU__5BE2A6F2" FromRole="PURCHASE_INVOICE" ToRole="TAG_PURCHASE_INVOICE" />
+        </EntityType>
+        <EntityType Name="QUALITY">
+          <Key>
+            <PropertyRef Name="QUALITY_ID" />
+          </Key>
+          <Property Name="QUALITY_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PURCHASE_INVOICE" Relationship="Self.FK__PURCHASE___FK_QU__5629CD9C" FromRole="QUALITY" ToRole="PURCHASE_INVOICE" />
+        </EntityType>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="ROLE_ID" />
+          </Key>
+          <Property Name="ROLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="USER" Relationship="Self.FK__USER__FK_ROLE_ID__31EC6D26" FromRole="ROLE" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="STATUS">
+          <Key>
+            <PropertyRef Name="STATUS_ID" />
+          </Key>
+          <Property Name="STATUS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PURCHASE_INVOICE" Relationship="Self.FK__PURCHASE___FK_ST__571DF1D5" FromRole="STATUS" ToRole="PURCHASE_INVOICE" />
+        </EntityType>
+        <EntityType Name="SUPPLIER">
+          <Key>
+            <PropertyRef Name="SUPPLIER_ID" />
+          </Key>
+          <Property Name="SUPPLIER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FK_TIME_ZONE_ID" Type="Int32" Nullable="false" />
+          <Property Name="INN" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FORM_OWNERSHIP" Type="Boolean" Nullable="false" />
+          <Property Name="FK_TYPE_ACTIVITY_ID" Type="Int32" Nullable="false" />
+          <Property Name="FK_PROFILE_ID" Type="Int32" Nullable="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FK_USER_ID_CREATOR" Type="Int32" Nullable="false" />
+          <Property Name="DATE_CREATION" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FK_USER_ID_CHANGED" Type="Int32" />
+          <Property Name="DATE_CHANGE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="DELIVERY_CONTRACT" Relationship="Self.FK__DELIVERY___FK_SU__4CA06362" FromRole="SUPPLIER" ToRole="DELIVERY_CONTRACT" />
+          <NavigationProperty Name="EMAIL" Relationship="Self.FK__EMAIL__FK_SUPPLI__3F466844" FromRole="SUPPLIER" ToRole="EMAIL" />
+          <NavigationProperty Name="OPENING_HOURS" Relationship="Self.FK__OPENING_H__FK_SU__49C3F6B7" FromRole="SUPPLIER" ToRole="OPENING_HOURS" />
+          <NavigationProperty Name="PHONE" Relationship="Self.FK__PHONE__FK_SUPPLI__3B75D760" FromRole="SUPPLIER" ToRole="PHONE" />
+          <NavigationProperty Name="PROFILE" Relationship="Self.FK__SUPPLIER__FK_PRO__36B12243" FromRole="SUPPLIER" ToRole="PROFILE" />
+          <NavigationProperty Name="TIME_ZONE" Relationship="Self.FK__SUPPLIER__FK_TIM__34C8D9D1" FromRole="SUPPLIER" ToRole="TIME_ZONE" />
+          <NavigationProperty Name="TYPE_ACTIVITY" Relationship="Self.FK__SUPPLIER__FK_TYP__35BCFE0A" FromRole="SUPPLIER" ToRole="TYPE_ACTIVITY" />
+          <NavigationProperty Name="USER" Relationship="Self.FK__SUPPLIER__FK_USE__37A5467C" FromRole="SUPPLIER" ToRole="USER" />
+          <NavigationProperty Name="USER1" Relationship="Self.FK__SUPPLIER__FK_USE__38996AB5" FromRole="SUPPLIER" ToRole="USER" />
+          <NavigationProperty Name="TAG_SUPPLIER" Relationship="Self.FK__TAG_SUPPL__FK_SU__45F365D3" FromRole="SUPPLIER" ToRole="TAG_SUPPLIER" />
+        </EntityType>
+        <EntityType Name="TAG">
+          <Key>
+            <PropertyRef Name="TAG_ID" />
+          </Key>
+          <Property Name="TAG_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="COLOR" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FK_USER_ID_CREATOR" Type="Int32" Nullable="false" />
+          <Property Name="DATE_CREATION" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FK_USER_ID_CHANGED" Type="Int32" />
+          <Property Name="DATE_CHANGE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="USER" Relationship="Self.FK__TAG__FK_USER_ID___4222D4EF" FromRole="TAG" ToRole="USER" />
+          <NavigationProperty Name="USER1" Relationship="Self.FK__TAG__FK_USER_ID___4316F928" FromRole="TAG" ToRole="USER" />
+          <NavigationProperty Name="TAG_DELIVERY_CONTRACT" Relationship="Self.FK__TAG_DELIV__FK_TA__52593CB8" FromRole="TAG" ToRole="TAG_DELIVERY_CONTRACT" />
+          <NavigationProperty Name="TAG_PURCHASE_INVOICE" Relationship="Self.FK__TAG_PURCH__FK_TA__5CD6CB2B" FromRole="TAG" ToRole="TAG_PURCHASE_INVOICE" />
+          <NavigationProperty Name="TAG_SUPPLIER" Relationship="Self.FK__TAG_SUPPL__FK_TA__46E78A0C" FromRole="TAG" ToRole="TAG_SUPPLIER" />
+        </EntityType>
+        <EntityType Name="TAG_DELIVERY_CONTRACT">
+          <Key>
+            <PropertyRef Name="TAG_DELIVERY_CONTRACT_ID" />
+          </Key>
+          <Property Name="TAG_DELIVERY_CONTRACT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_DELIVERY_CONTRACT_ID" Type="Int32" Nullable="false" />
+          <Property Name="FK_TAG_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DELIVERY_CONTRACT" Relationship="Self.FK__TAG_DELIV__FK_DE__5165187F" FromRole="TAG_DELIVERY_CONTRACT" ToRole="DELIVERY_CONTRACT" />
+          <NavigationProperty Name="TAG" Relationship="Self.FK__TAG_DELIV__FK_TA__52593CB8" FromRole="TAG_DELIVERY_CONTRACT" ToRole="TAG" />
+        </EntityType>
+        <EntityType Name="TAG_PURCHASE_INVOICE">
+          <Key>
+            <PropertyRef Name="TAG_PURCHASE_INVOICE_ID" />
+          </Key>
+          <Property Name="TAG_PURCHASE_INVOICE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_PURCHASE_INVOICE_ID" Type="Int32" Nullable="false" />
+          <Property Name="FK_TAG_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PURCHASE_INVOICE" Relationship="Self.FK__TAG_PURCH__FK_PU__5BE2A6F2" FromRole="TAG_PURCHASE_INVOICE" ToRole="PURCHASE_INVOICE" />
+          <NavigationProperty Name="TAG" Relationship="Self.FK__TAG_PURCH__FK_TA__5CD6CB2B" FromRole="TAG_PURCHASE_INVOICE" ToRole="TAG" />
+        </EntityType>
+        <EntityType Name="TAG_SUPPLIER">
+          <Key>
+            <PropertyRef Name="TAG_SUPPLIER_ID" />
+          </Key>
+          <Property Name="TAG_SUPPLIER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_SUPPLIER_ID" Type="Int32" Nullable="false" />
+          <Property Name="FK_TAG_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SUPPLIER" Relationship="Self.FK__TAG_SUPPL__FK_SU__45F365D3" FromRole="TAG_SUPPLIER" ToRole="SUPPLIER" />
+          <NavigationProperty Name="TAG" Relationship="Self.FK__TAG_SUPPL__FK_TA__46E78A0C" FromRole="TAG_SUPPLIER" ToRole="TAG" />
+        </EntityType>
+        <EntityType Name="TIME_ZONE">
+          <Key>
+            <PropertyRef Name="TIME_ZONE_ID" />
+          </Key>
+          <Property Name="TIME_ZONE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GLOBAL" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IN_MOSCOW" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VALUE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SUPPLIER" Relationship="Self.FK__SUPPLIER__FK_TIM__34C8D9D1" FromRole="TIME_ZONE" ToRole="SUPPLIER" />
+        </EntityType>
+        <EntityType Name="TYPE_ACTIVITY">
+          <Key>
+            <PropertyRef Name="TYPE_ACTIVITY_ID" />
+          </Key>
+          <Property Name="TYPE_ACTIVITY_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SUPPLIER" Relationship="Self.FK__SUPPLIER__FK_TYP__35BCFE0A" FromRole="TYPE_ACTIVITY" ToRole="SUPPLIER" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LOGIN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FK_ROLE_ID" Type="Int32" Nullable="false" />
+          <Property Name="LAST_ACTIVITY" Type="DateTime" Precision="0" />
+          <Property Name="STATUS" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DELIVERY_CONTRACT" Relationship="Self.FK__DELIVERY___FK_US__4D94879B" FromRole="USER" ToRole="DELIVERY_CONTRACT" />
+          <NavigationProperty Name="DELIVERY_CONTRACT1" Relationship="Self.FK__DELIVERY___FK_US__4E88ABD4" FromRole="USER" ToRole="DELIVERY_CONTRACT" />
+          <NavigationProperty Name="PURCHASE_INVOICE" Relationship="Self.FK__PURCHASE___FK_US__5812160E" FromRole="USER" ToRole="PURCHASE_INVOICE" />
+          <NavigationProperty Name="PURCHASE_INVOICE1" Relationship="Self.FK__PURCHASE___FK_US__59063A47" FromRole="USER" ToRole="PURCHASE_INVOICE" />
+          <NavigationProperty Name="ROLE" Relationship="Self.FK__USER__FK_ROLE_ID__31EC6D26" FromRole="USER" ToRole="ROLE" />
+          <NavigationProperty Name="SUPPLIER" Relationship="Self.FK__SUPPLIER__FK_USE__37A5467C" FromRole="USER" ToRole="SUPPLIER" />
+          <NavigationProperty Name="SUPPLIER1" Relationship="Self.FK__SUPPLIER__FK_USE__38996AB5" FromRole="USER" ToRole="SUPPLIER" />
+          <NavigationProperty Name="TAG" Relationship="Self.FK__TAG__FK_USER_ID___4222D4EF" FromRole="USER" ToRole="TAG" />
+          <NavigationProperty Name="TAG1" Relationship="Self.FK__TAG__FK_USER_ID___4316F928" FromRole="USER" ToRole="TAG" />
+        </EntityType>
+        <Association Name="FK__DELIVERY___FK_SU__4CA06362">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="DELIVERY_CONTRACT" Type="Self.DELIVERY_CONTRACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="SUPPLIER_ID" />
+            </Principal>
+            <Dependent Role="DELIVERY_CONTRACT">
+              <PropertyRef Name="FK_SUPPLIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DELIVERY___FK_US__4D94879B">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="DELIVERY_CONTRACT" Type="Self.DELIVERY_CONTRACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="DELIVERY_CONTRACT">
+              <PropertyRef Name="FK_USER_ID_CREATOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DELIVERY___FK_US__4E88ABD4">
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="DELIVERY_CONTRACT" Type="Self.DELIVERY_CONTRACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="DELIVERY_CONTRACT">
+              <PropertyRef Name="FK_USER_ID_CHANGED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PURCHASE___FK_DE__5535A963">
+          <End Role="DELIVERY_CONTRACT" Type="Self.DELIVERY_CONTRACT" Multiplicity="1" />
+          <End Role="PURCHASE_INVOICE" Type="Self.PURCHASE_INVOICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DELIVERY_CONTRACT">
+              <PropertyRef Name="DELIVERY_CONTRACT_ID" />
+            </Principal>
+            <Dependent Role="PURCHASE_INVOICE">
+              <PropertyRef Name="FK_DELIVERY_CONTRACT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG_DELIV__FK_DE__5165187F">
+          <End Role="DELIVERY_CONTRACT" Type="Self.DELIVERY_CONTRACT" Multiplicity="1" />
+          <End Role="TAG_DELIVERY_CONTRACT" Type="Self.TAG_DELIVERY_CONTRACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DELIVERY_CONTRACT">
+              <PropertyRef Name="DELIVERY_CONTRACT_ID" />
+            </Principal>
+            <Dependent Role="TAG_DELIVERY_CONTRACT">
+              <PropertyRef Name="FK_DELIVERY_CONTRACT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMAIL__FK_SUPPLI__3F466844">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="EMAIL" Type="Self.EMAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="SUPPLIER_ID" />
+            </Principal>
+            <Dependent Role="EMAIL">
+              <PropertyRef Name="FK_SUPPLIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OPENING_H__FK_SU__49C3F6B7">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="OPENING_HOURS" Type="Self.OPENING_HOURS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="SUPPLIER_ID" />
+            </Principal>
+            <Dependent Role="OPENING_HOURS">
+              <PropertyRef Name="FK_SUPPLIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHONE__FK_PHONE___3C69FB99">
+          <End Role="PHONE_FORMAT" Type="Self.PHONE_FORMAT" Multiplicity="1" />
+          <End Role="PHONE" Type="Self.PHONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHONE_FORMAT">
+              <PropertyRef Name="PHONE_FORMAT_ID" />
+            </Principal>
+            <Dependent Role="PHONE">
+              <PropertyRef Name="FK_PHONE_FORMAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHONE__FK_SUPPLI__3B75D760">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="PHONE" Type="Self.PHONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="SUPPLIER_ID" />
+            </Principal>
+            <Dependent Role="PHONE">
+              <PropertyRef Name="FK_SUPPLIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SUPPLIER__FK_PRO__36B12243">
+          <End Role="PROFILE" Type="Self.PROFILE" Multiplicity="1" />
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFILE">
+              <PropertyRef Name="PROFILE_ID" />
+            </Principal>
+            <Dependent Role="SUPPLIER">
+              <PropertyRef Name="FK_PROFILE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PURCHASE___FK_QU__5629CD9C">
+          <End Role="QUALITY" Type="Self.QUALITY" Multiplicity="1" />
+          <End Role="PURCHASE_INVOICE" Type="Self.PURCHASE_INVOICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUALITY">
+              <PropertyRef Name="QUALITY_ID" />
+            </Principal>
+            <Dependent Role="PURCHASE_INVOICE">
+              <PropertyRef Name="FK_QUALITY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PURCHASE___FK_ST__571DF1D5">
+          <End Role="STATUS" Type="Self.STATUS" Multiplicity="1" />
+          <End Role="PURCHASE_INVOICE" Type="Self.PURCHASE_INVOICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUS">
+              <PropertyRef Name="STATUS_ID" />
+            </Principal>
+            <Dependent Role="PURCHASE_INVOICE">
+              <PropertyRef Name="FK_STATUS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PURCHASE___FK_US__5812160E">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="PURCHASE_INVOICE" Type="Self.PURCHASE_INVOICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="PURCHASE_INVOICE">
+              <PropertyRef Name="FK_USER_ID_CREATOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PURCHASE___FK_US__59063A47">
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="PURCHASE_INVOICE" Type="Self.PURCHASE_INVOICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="PURCHASE_INVOICE">
+              <PropertyRef Name="FK_USER_ID_CHANGED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG_PURCH__FK_PU__5BE2A6F2">
+          <End Role="PURCHASE_INVOICE" Type="Self.PURCHASE_INVOICE" Multiplicity="1" />
+          <End Role="TAG_PURCHASE_INVOICE" Type="Self.TAG_PURCHASE_INVOICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PURCHASE_INVOICE">
+              <PropertyRef Name="PURCHASE_INVOICE_ID" />
+            </Principal>
+            <Dependent Role="TAG_PURCHASE_INVOICE">
+              <PropertyRef Name="FK_PURCHASE_INVOICE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USER__FK_ROLE_ID__31EC6D26">
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="1" />
+          <End Role="USER" Type="Self.USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLE">
+              <PropertyRef Name="ROLE_ID" />
+            </Principal>
+            <Dependent Role="USER">
+              <PropertyRef Name="FK_ROLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SUPPLIER__FK_TIM__34C8D9D1">
+          <End Role="TIME_ZONE" Type="Self.TIME_ZONE" Multiplicity="1" />
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIME_ZONE">
+              <PropertyRef Name="TIME_ZONE_ID" />
+            </Principal>
+            <Dependent Role="SUPPLIER">
+              <PropertyRef Name="FK_TIME_ZONE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SUPPLIER__FK_TYP__35BCFE0A">
+          <End Role="TYPE_ACTIVITY" Type="Self.TYPE_ACTIVITY" Multiplicity="1" />
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_ACTIVITY">
+              <PropertyRef Name="TYPE_ACTIVITY_ID" />
+            </Principal>
+            <Dependent Role="SUPPLIER">
+              <PropertyRef Name="FK_TYPE_ACTIVITY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SUPPLIER__FK_USE__37A5467C">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="SUPPLIER">
+              <PropertyRef Name="FK_USER_ID_CREATOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SUPPLIER__FK_USE__38996AB5">
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="SUPPLIER">
+              <PropertyRef Name="FK_USER_ID_CHANGED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG_SUPPL__FK_SU__45F365D3">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="TAG_SUPPLIER" Type="Self.TAG_SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="SUPPLIER_ID" />
+            </Principal>
+            <Dependent Role="TAG_SUPPLIER">
+              <PropertyRef Name="FK_SUPPLIER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG__FK_USER_ID___4222D4EF">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="TAG" Type="Self.TAG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="TAG">
+              <PropertyRef Name="FK_USER_ID_CREATOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG__FK_USER_ID___4316F928">
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="TAG" Type="Self.TAG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="TAG">
+              <PropertyRef Name="FK_USER_ID_CHANGED" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG_DELIV__FK_TA__52593CB8">
+          <End Role="TAG" Type="Self.TAG" Multiplicity="1" />
+          <End Role="TAG_DELIVERY_CONTRACT" Type="Self.TAG_DELIVERY_CONTRACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAG">
+              <PropertyRef Name="TAG_ID" />
+            </Principal>
+            <Dependent Role="TAG_DELIVERY_CONTRACT">
+              <PropertyRef Name="FK_TAG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG_PURCH__FK_TA__5CD6CB2B">
+          <End Role="TAG" Type="Self.TAG" Multiplicity="1" />
+          <End Role="TAG_PURCHASE_INVOICE" Type="Self.TAG_PURCHASE_INVOICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAG">
+              <PropertyRef Name="TAG_ID" />
+            </Principal>
+            <Dependent Role="TAG_PURCHASE_INVOICE">
+              <PropertyRef Name="FK_TAG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TAG_SUPPL__FK_TA__46E78A0C">
+          <End Role="TAG" Type="Self.TAG" Multiplicity="1" />
+          <End Role="TAG_SUPPLIER" Type="Self.TAG_SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAG">
+              <PropertyRef Name="TAG_ID" />
+            </Principal>
+            <Dependent Role="TAG_SUPPLIER">
+              <PropertyRef Name="FK_TAG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AMBIT" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DELIVERY_CONTRACT" EntityType="Self.DELIVERY_CONTRACT" />
+          <EntitySet Name="EMAIL" EntityType="Self.EMAIL" />
+          <EntitySet Name="OPENING_HOURS" EntityType="Self.OPENING_HOURS" />
+          <EntitySet Name="PHONE" EntityType="Self.PHONE" />
+          <EntitySet Name="PHONE_FORMAT" EntityType="Self.PHONE_FORMAT" />
+          <EntitySet Name="PROFILE" EntityType="Self.PROFILE" />
+          <EntitySet Name="PURCHASE_INVOICE" EntityType="Self.PURCHASE_INVOICE" />
+          <EntitySet Name="QUALITY" EntityType="Self.QUALITY" />
+          <EntitySet Name="ROLE" EntityType="Self.ROLE" />
+          <EntitySet Name="STATUS" EntityType="Self.STATUS" />
+          <EntitySet Name="SUPPLIER" EntityType="Self.SUPPLIER" />
+          <EntitySet Name="TAG" EntityType="Self.TAG" />
+          <EntitySet Name="TAG_DELIVERY_CONTRACT" EntityType="Self.TAG_DELIVERY_CONTRACT" />
+          <EntitySet Name="TAG_PURCHASE_INVOICE" EntityType="Self.TAG_PURCHASE_INVOICE" />
+          <EntitySet Name="TAG_SUPPLIER" EntityType="Self.TAG_SUPPLIER" />
+          <EntitySet Name="TIME_ZONE" EntityType="Self.TIME_ZONE" />
+          <EntitySet Name="TYPE_ACTIVITY" EntityType="Self.TYPE_ACTIVITY" />
+          <EntitySet Name="USER" EntityType="Self.USER" />
+          <AssociationSet Name="FK__DELIVERY___FK_SU__4CA06362" Association="Self.FK__DELIVERY___FK_SU__4CA06362">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="DELIVERY_CONTRACT" EntitySet="DELIVERY_CONTRACT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DELIVERY___FK_US__4D94879B" Association="Self.FK__DELIVERY___FK_US__4D94879B">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="DELIVERY_CONTRACT" EntitySet="DELIVERY_CONTRACT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DELIVERY___FK_US__4E88ABD4" Association="Self.FK__DELIVERY___FK_US__4E88ABD4">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="DELIVERY_CONTRACT" EntitySet="DELIVERY_CONTRACT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PURCHASE___FK_DE__5535A963" Association="Self.FK__PURCHASE___FK_DE__5535A963">
+            <End Role="DELIVERY_CONTRACT" EntitySet="DELIVERY_CONTRACT" />
+            <End Role="PURCHASE_INVOICE" EntitySet="PURCHASE_INVOICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG_DELIV__FK_DE__5165187F" Association="Self.FK__TAG_DELIV__FK_DE__5165187F">
+            <End Role="DELIVERY_CONTRACT" EntitySet="DELIVERY_CONTRACT" />
+            <End Role="TAG_DELIVERY_CONTRACT" EntitySet="TAG_DELIVERY_CONTRACT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMAIL__FK_SUPPLI__3F466844" Association="Self.FK__EMAIL__FK_SUPPLI__3F466844">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="EMAIL" EntitySet="EMAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OPENING_H__FK_SU__49C3F6B7" Association="Self.FK__OPENING_H__FK_SU__49C3F6B7">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="OPENING_HOURS" EntitySet="OPENING_HOURS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHONE__FK_PHONE___3C69FB99" Association="Self.FK__PHONE__FK_PHONE___3C69FB99">
+            <End Role="PHONE_FORMAT" EntitySet="PHONE_FORMAT" />
+            <End Role="PHONE" EntitySet="PHONE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHONE__FK_SUPPLI__3B75D760" Association="Self.FK__PHONE__FK_SUPPLI__3B75D760">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="PHONE" EntitySet="PHONE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SUPPLIER__FK_PRO__36B12243" Association="Self.FK__SUPPLIER__FK_PRO__36B12243">
+            <End Role="PROFILE" EntitySet="PROFILE" />
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PURCHASE___FK_QU__5629CD9C" Association="Self.FK__PURCHASE___FK_QU__5629CD9C">
+            <End Role="QUALITY" EntitySet="QUALITY" />
+            <End Role="PURCHASE_INVOICE" EntitySet="PURCHASE_INVOICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PURCHASE___FK_ST__571DF1D5" Association="Self.FK__PURCHASE___FK_ST__571DF1D5">
+            <End Role="STATUS" EntitySet="STATUS" />
+            <End Role="PURCHASE_INVOICE" EntitySet="PURCHASE_INVOICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PURCHASE___FK_US__5812160E" Association="Self.FK__PURCHASE___FK_US__5812160E">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="PURCHASE_INVOICE" EntitySet="PURCHASE_INVOICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PURCHASE___FK_US__59063A47" Association="Self.FK__PURCHASE___FK_US__59063A47">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="PURCHASE_INVOICE" EntitySet="PURCHASE_INVOICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG_PURCH__FK_PU__5BE2A6F2" Association="Self.FK__TAG_PURCH__FK_PU__5BE2A6F2">
+            <End Role="PURCHASE_INVOICE" EntitySet="PURCHASE_INVOICE" />
+            <End Role="TAG_PURCHASE_INVOICE" EntitySet="TAG_PURCHASE_INVOICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USER__FK_ROLE_ID__31EC6D26" Association="Self.FK__USER__FK_ROLE_ID__31EC6D26">
+            <End Role="ROLE" EntitySet="ROLE" />
+            <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SUPPLIER__FK_TIM__34C8D9D1" Association="Self.FK__SUPPLIER__FK_TIM__34C8D9D1">
+            <End Role="TIME_ZONE" EntitySet="TIME_ZONE" />
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SUPPLIER__FK_TYP__35BCFE0A" Association="Self.FK__SUPPLIER__FK_TYP__35BCFE0A">
+            <End Role="TYPE_ACTIVITY" EntitySet="TYPE_ACTIVITY" />
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SUPPLIER__FK_USE__37A5467C" Association="Self.FK__SUPPLIER__FK_USE__37A5467C">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SUPPLIER__FK_USE__38996AB5" Association="Self.FK__SUPPLIER__FK_USE__38996AB5">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG_SUPPL__FK_SU__45F365D3" Association="Self.FK__TAG_SUPPL__FK_SU__45F365D3">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="TAG_SUPPLIER" EntitySet="TAG_SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG__FK_USER_ID___4222D4EF" Association="Self.FK__TAG__FK_USER_ID___4222D4EF">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="TAG" EntitySet="TAG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG__FK_USER_ID___4316F928" Association="Self.FK__TAG__FK_USER_ID___4316F928">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="TAG" EntitySet="TAG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG_DELIV__FK_TA__52593CB8" Association="Self.FK__TAG_DELIV__FK_TA__52593CB8">
+            <End Role="TAG" EntitySet="TAG" />
+            <End Role="TAG_DELIVERY_CONTRACT" EntitySet="TAG_DELIVERY_CONTRACT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG_PURCH__FK_TA__5CD6CB2B" Association="Self.FK__TAG_PURCH__FK_TA__5CD6CB2B">
+            <End Role="TAG" EntitySet="TAG" />
+            <End Role="TAG_PURCHASE_INVOICE" EntitySet="TAG_PURCHASE_INVOICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TAG_SUPPL__FK_TA__46E78A0C" Association="Self.FK__TAG_SUPPL__FK_TA__46E78A0C">
+            <End Role="TAG" EntitySet="TAG" />
+            <End Role="TAG_SUPPLIER" EntitySet="TAG_SUPPLIER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище AMBITModelContainer" CdmEntityContainer="AMBIT">
+          <EntitySetMapping Name="DELIVERY_CONTRACT">
+            <EntityTypeMapping TypeName="AMBITModel.DELIVERY_CONTRACT">
+              <MappingFragment StoreEntitySet="DELIVERY_CONTRACT">
+                <ScalarProperty Name="DELIVERY_CONTRACT_ID" ColumnName="DELIVERY_CONTRACT_ID" />
+                <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+                <ScalarProperty Name="FK_SUPPLIER_ID" ColumnName="FK_SUPPLIER_ID" />
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="DATE_FINISH" ColumnName="DATE_FINISH" />
+                <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+                <ScalarProperty Name="FK_USER_ID_CREATOR" ColumnName="FK_USER_ID_CREATOR" />
+                <ScalarProperty Name="DATE_CREATION" ColumnName="DATE_CREATION" />
+                <ScalarProperty Name="FK_USER_ID_CHANGED" ColumnName="FK_USER_ID_CHANGED" />
+                <ScalarProperty Name="DATE_CHANGE" ColumnName="DATE_CHANGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMAIL">
+            <EntityTypeMapping TypeName="AMBITModel.EMAIL">
+              <MappingFragment StoreEntitySet="EMAIL">
+                <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
+                <ScalarProperty Name="FK_SUPPLIER_ID" ColumnName="FK_SUPPLIER_ID" />
+                <ScalarProperty Name="EMAIL1" ColumnName="EMAIL" />
+                <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OPENING_HOURS">
+            <EntityTypeMapping TypeName="AMBITModel.OPENING_HOURS">
+              <MappingFragment StoreEntitySet="OPENING_HOURS">
+                <ScalarProperty Name="OPENING_HOURS_ID" ColumnName="OPENING_HOURS_ID" />
+                <ScalarProperty Name="FK_SUPPLIER_ID" ColumnName="FK_SUPPLIER_ID" />
+                <ScalarProperty Name="DAY" ColumnName="DAY" />
+                <ScalarProperty Name="START" ColumnName="START" />
+                <ScalarProperty Name="END" ColumnName="END" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHONE">
+            <EntityTypeMapping TypeName="AMBITModel.PHONE">
+              <MappingFragment StoreEntitySet="PHONE">
+                <ScalarProperty Name="PHONE_ID" ColumnName="PHONE_ID" />
+                <ScalarProperty Name="FK_SUPPLIER_ID" ColumnName="FK_SUPPLIER_ID" />
+                <ScalarProperty Name="FK_PHONE_FORMAT_ID" ColumnName="FK_PHONE_FORMAT_ID" />
+                <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+                <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHONE_FORMAT">
+            <EntityTypeMapping TypeName="AMBITModel.PHONE_FORMAT">
+              <MappingFragment StoreEntitySet="PHONE_FORMAT">
+                <ScalarProperty Name="PHONE_FORMAT_ID" ColumnName="PHONE_FORMAT_ID" />
+                <ScalarProperty Name="FORMAT" ColumnName="FORMAT" />
+                <ScalarProperty Name="FLAG" ColumnName="FLAG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROFILE">
+            <EntityTypeMapping TypeName="AMBITModel.PROFILE">
+              <MappingFragment StoreEntitySet="PROFILE">
+                <ScalarProperty Name="PROFILE_ID" ColumnName="PROFILE_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PURCHASE_INVOICE">
+            <EntityTypeMapping TypeName="AMBITModel.PURCHASE_INVOICE">
+              <MappingFragment StoreEntitySet="PURCHASE_INVOICE">
+                <ScalarProperty Name="PURCHASE_INVOICE_ID" ColumnName="PURCHASE_INVOICE_ID" />
+                <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+                <ScalarProperty Name="FK_DELIVERY_CONTRACT_ID" ColumnName="FK_DELIVERY_CONTRACT_ID" />
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="FK_QUALITY_ID" ColumnName="FK_QUALITY_ID" />
+                <ScalarProperty Name="FK_STATUS_ID" ColumnName="FK_STATUS_ID" />
+                <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+                <ScalarProperty Name="FK_USER_ID_CREATOR" ColumnName="FK_USER_ID_CREATOR" />
+                <ScalarProperty Name="DATE_CREATION" ColumnName="DATE_CREATION" />
+                <ScalarProperty Name="FK_USER_ID_CHANGED" ColumnName="FK_USER_ID_CHANGED" />
+                <ScalarProperty Name="DATE_CHANGE" ColumnName="DATE_CHANGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUALITY">
+            <EntityTypeMapping TypeName="AMBITModel.QUALITY">
+              <MappingFragment StoreEntitySet="QUALITY">
+                <ScalarProperty Name="QUALITY_ID" ColumnName="QUALITY_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROLE">
+            <EntityTypeMapping TypeName="AMBITModel.ROLE">
+              <MappingFragment StoreEntitySet="ROLE">
+                <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATUS">
+            <EntityTypeMapping TypeName="AMBITModel.STATUS">
+              <MappingFragment StoreEntitySet="STATUS">
+                <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUPPLIER">
+            <EntityTypeMapping TypeName="AMBITModel.SUPPLIER">
+              <MappingFragment StoreEntitySet="SUPPLIER">
+                <ScalarProperty Name="SUPPLIER_ID" ColumnName="SUPPLIER_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="FK_TIME_ZONE_ID" ColumnName="FK_TIME_ZONE_ID" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="FORM_OWNERSHIP" ColumnName="FORM_OWNERSHIP" />
+                <ScalarProperty Name="FK_TYPE_ACTIVITY_ID" ColumnName="FK_TYPE_ACTIVITY_ID" />
+                <ScalarProperty Name="FK_PROFILE_ID" ColumnName="FK_PROFILE_ID" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="FK_USER_ID_CREATOR" ColumnName="FK_USER_ID_CREATOR" />
+                <ScalarProperty Name="DATE_CREATION" ColumnName="DATE_CREATION" />
+                <ScalarProperty Name="FK_USER_ID_CHANGED" ColumnName="FK_USER_ID_CHANGED" />
+                <ScalarProperty Name="DATE_CHANGE" ColumnName="DATE_CHANGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAG">
+            <EntityTypeMapping TypeName="AMBITModel.TAG">
+              <MappingFragment StoreEntitySet="TAG">
+                <ScalarProperty Name="TAG_ID" ColumnName="TAG_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="COLOR" ColumnName="COLOR" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="FK_USER_ID_CREATOR" ColumnName="FK_USER_ID_CREATOR" />
+                <ScalarProperty Name="DATE_CREATION" ColumnName="DATE_CREATION" />
+                <ScalarProperty Name="FK_USER_ID_CHANGED" ColumnName="FK_USER_ID_CHANGED" />
+                <ScalarProperty Name="DATE_CHANGE" ColumnName="DATE_CHANGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAG_DELIVERY_CONTRACT">
+            <EntityTypeMapping TypeName="AMBITModel.TAG_DELIVERY_CONTRACT">
+              <MappingFragment StoreEntitySet="TAG_DELIVERY_CONTRACT">
+                <ScalarProperty Name="TAG_DELIVERY_CONTRACT_ID" ColumnName="TAG_DELIVERY_CONTRACT_ID" />
+                <ScalarProperty Name="FK_DELIVERY_CONTRACT_ID" ColumnName="FK_DELIVERY_CONTRACT_ID" />
+                <ScalarProperty Name="FK_TAG_ID" ColumnName="FK_TAG_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAG_PURCHASE_INVOICE">
+            <EntityTypeMapping TypeName="AMBITModel.TAG_PURCHASE_INVOICE">
+              <MappingFragment StoreEntitySet="TAG_PURCHASE_INVOICE">
+                <ScalarProperty Name="TAG_PURCHASE_INVOICE_ID" ColumnName="TAG_PURCHASE_INVOICE_ID" />
+                <ScalarProperty Name="FK_PURCHASE_INVOICE_ID" ColumnName="FK_PURCHASE_INVOICE_ID" />
+                <ScalarProperty Name="FK_TAG_ID" ColumnName="FK_TAG_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAG_SUPPLIER">
+            <EntityTypeMapping TypeName="AMBITModel.TAG_SUPPLIER">
+              <MappingFragment StoreEntitySet="TAG_SUPPLIER">
+                <ScalarProperty Name="TAG_SUPPLIER_ID" ColumnName="TAG_SUPPLIER_ID" />
+                <ScalarProperty Name="FK_SUPPLIER_ID" ColumnName="FK_SUPPLIER_ID" />
+                <ScalarProperty Name="FK_TAG_ID" ColumnName="FK_TAG_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIME_ZONE">
+            <EntityTypeMapping TypeName="AMBITModel.TIME_ZONE">
+              <MappingFragment StoreEntitySet="TIME_ZONE">
+                <ScalarProperty Name="TIME_ZONE_ID" ColumnName="TIME_ZONE_ID" />
+                <ScalarProperty Name="GLOBAL" ColumnName="GLOBAL" />
+                <ScalarProperty Name="IN_MOSCOW" ColumnName="IN_MOSCOW" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TYPE_ACTIVITY">
+            <EntityTypeMapping TypeName="AMBITModel.TYPE_ACTIVITY">
+              <MappingFragment StoreEntitySet="TYPE_ACTIVITY">
+                <ScalarProperty Name="TYPE_ACTIVITY_ID" ColumnName="TYPE_ACTIVITY_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER">
+            <EntityTypeMapping TypeName="AMBITModel.USER">
+              <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="FK_ROLE_ID" ColumnName="FK_ROLE_ID" />
+                <ScalarProperty Name="LAST_ACTIVITY" ColumnName="LAST_ACTIVITY" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

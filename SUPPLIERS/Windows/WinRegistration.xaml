@@ -1,0 +1,36 @@
+﻿<Window x:Class="SUPPLIERS.Windows.WinRegistration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SUPPLIERS.Windows"
+        mc:Ignorable="d"
+        Title="Заявка на регистрацию" Height="204.333" Width="387" Style="{StaticResource WinFont}" WindowStartupLocation="CenterScreen">
+    <Border Padding="5">
+        <StackPanel x:Name="s">
+            <TextBlock HorizontalAlignment="Center" Style="{StaticResource Title}">Регистрация</TextBlock>
+            <Separator Background="#BF5324"></Separator>
+            <DockPanel Margin="5">
+                <TextBlock Width="50" Margin="5" Style="{StaticResource label}">ФИО</TextBlock>
+                <TextBox x:Name="FIO"></TextBox>
+            </DockPanel>
+            <DockPanel Margin="5">
+                <TextBlock Width="50" Margin="5" Style="{StaticResource label}">Логин</TextBlock>
+                <TextBox x:Name="LOGIN"></TextBox>
+            </DockPanel>
+            <DockPanel Margin="5">
+                <TextBlock Width="50" Margin="5" Style="{StaticResource label}">Пароль</TextBlock>
+                <PasswordBox x:Name="PASSWORD"></PasswordBox>
+            </DockPanel>
+            <Grid Margin="20,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Button Width="100" Grid.Column="0" Click="ButtonClose" Style="{StaticResource Button}">Отмена</Button>
+                <Button Width="100" Grid.Column="2" Click="Save" Style="{StaticResource Button}">Сохранить</Button>
+            </Grid>
+        </StackPanel>
+    </Border>
+</Window>

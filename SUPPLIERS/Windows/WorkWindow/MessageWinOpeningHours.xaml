@@ -1,0 +1,84 @@
+﻿<Window x:Class="SUPPLIERS.MessageWinOpeningHours"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SUPPLIERS"
+        xmlns:vm="clr-namespace:SUPPLIERS.Model"
+        mc:Ignorable="d"
+        Title="Часы работы" Height="220" Width="200" Style="{StaticResource WinFont}" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Line">
+            <Setter Property="Stroke" Value="Black"/>
+            <Setter Property="Stretch" Value="Fill"/>
+            <Setter Property="X2" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    <Border Padding="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="5"/>
+                <RowDefinition/>
+                <RowDefinition Height="5"/>
+                <RowDefinition/>
+                <RowDefinition Height="5"/>
+                <RowDefinition/>
+                <RowDefinition Height="5"/>
+                <RowDefinition/>
+                <RowDefinition Height="5"/>
+                <RowDefinition/>
+                <RowDefinition Height="5"/>
+                <RowDefinition/>
+                <RowDefinition Height="5"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Line Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+            <Line Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"/>
+            <Line Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"/>
+            <Line Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3"/>
+            <Line Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3"/>
+            <Line Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="3"/>
+            <Line Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+            <StackPanel  Grid.Row="0" Grid.Column="1" Grid.RowSpan="15" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Background="Black"/>
+            </StackPanel>
+
+            <TextBlock Style="{StaticResource label}" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0"  Text="День"/>
+            <TextBlock Style="{StaticResource label}" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="2"  Text="Время"/>
+
+            <TextBlock x:Name="Day_0" Grid.Row="2" Grid.Column="0"  Text="Пн"/>
+            <TextBlock x:Name="Day_1" Grid.Row="4" Grid.Column="0"  Text="Вт"/>
+            <TextBlock x:Name="Day_2" Grid.Row="6" Grid.Column="0"  Text="Ср"/>
+            <TextBlock x:Name="Day_3" Grid.Row="8" Grid.Column="0"  Text="Чт"/>
+            <TextBlock x:Name="Day_4" Grid.Row="10" Grid.Column="0"  Text="Пт"/>
+            <TextBlock x:Name="Day_5" Grid.Row="12" Grid.Column="0"  Text="Сб"/>
+            <TextBlock x:Name="Day_6" Grid.Row="14" Grid.Column="0"  Text="Вс"/>
+
+            <TextBox x:Name="Time_0" Grid.Row="2" Grid.Column="2"/>
+            <TextBox x:Name="Time_1" Grid.Row="4" Grid.Column="2"/>
+            <TextBox x:Name="Time_2" Grid.Row="6" Grid.Column="2"/>
+            <TextBox x:Name="Time_3" Grid.Row="8" Grid.Column="2"/>
+            <TextBox x:Name="Time_4" Grid.Row="10" Grid.Column="2"/>
+            <TextBox x:Name="Time_5" Grid.Row="12" Grid.Column="2"/>
+            <TextBox x:Name="Time_6" Grid.Row="14" Grid.Column="2"/>
+        </Grid>
+    </Border>
+</Window>

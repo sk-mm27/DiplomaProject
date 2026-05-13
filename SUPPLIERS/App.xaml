@@ -1,0 +1,87 @@
+﻿<Application x:Class="SUPPLIERS.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SUPPLIERS"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="WinFont" TargetType="{x:Type Window}">
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+        </Style>
+        <Style x:Key="GridStyle" TargetType="DataGrid">
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserReorderColumns" Value="False"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="ColumnWidth" Value="*"/>
+        </Style>
+
+        <Style x:Key="ButtonText" TargetType="Button">
+            <Setter Property="Background" Value="#00000000"></Setter>
+            <Setter Property="BorderBrush" Value="#00000000"></Setter>
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="0" Background="{TemplateBinding Background}">
+                            <TextBlock x:Name="MyContentPresenter" Text="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" TextDecorations="Underline"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="#E59400"/>
+                                <Setter TargetName="MyContentPresenter" Property="TextDecorations" Value="None"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#BF5324"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="Title" TargetType="TextBlock">
+            <Setter Property="Background" Value="#00000000"></Setter>
+            <Setter Property="Foreground" Value="#BF5324"></Setter>
+            <Setter Property="Typography.Capitals" Value="AllSmallCaps"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+        <Style x:Key="label" TargetType="TextBlock">
+            <Setter Property="Background" Value="#00000000"></Setter>
+            <Setter Property="Foreground" Value="#BF5324"></Setter>
+        </Style>
+        
+        <Style x:Key="Button" TargetType="Button">
+            <Setter Property="Background" Value="#00000000"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="B" CornerRadius="0" Background="{TemplateBinding Background}" BorderBrush="Gray" BorderThickness="1">
+                            <TextBlock x:Name="MyContentPresenter" Text="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="B" Property="Background" Value="#BF5324"></Setter>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="OrangeRed"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            
+        </Style>
+    </Application.Resources>
+</Application>

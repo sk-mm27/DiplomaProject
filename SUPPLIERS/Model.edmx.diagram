@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e2ce23c00ac34d03bd440eea285de45a" Name="Diagram1">
+        <EntityTypeShape EntityType="AMBITModel.DELIVERY_CONTRACT" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.EMAIL" Width="1.5" PointX="10.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.OPENING_HOURS" Width="1.5" PointX="10.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.PHONE" Width="1.5" PointX="13.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.PHONE_FORMAT" Width="1.5" PointX="11.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.PROFILE" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.PURCHASE_INVOICE" Width="1.5" PointX="7.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.QUALITY" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.ROLE" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.STATUS" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.SUPPLIER" Width="1.5" PointX="8.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.TAG" Width="1.5" PointX="5.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.TAG_DELIVERY_CONTRACT" Width="1.5" PointX="7.5" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.TAG_PURCHASE_INVOICE" Width="1.5" PointX="12.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.TAG_SUPPLIER" Width="1.5" PointX="10.5" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.TIME_ZONE" Width="1.5" PointX="6" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.TYPE_ACTIVITY" Width="1.5" PointX="6" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMBITModel.USER" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <AssociationConnector Association="AMBITModel.FK__DELIVERY___FK_SU__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__DELIVERY___FK_US__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__DELIVERY___FK_US__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__PURCHASE___FK_DE__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__TAG_DELIV__FK_DE__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__EMAIL__FK_SUPPLI__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__OPENING_H__FK_SU__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__PHONE__FK_PHONE___3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__PHONE__FK_SUPPLI__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__SUPPLIER__FK_PRO__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__PURCHASE___FK_QU__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__PURCHASE___FK_ST__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__PURCHASE___FK_US__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__PURCHASE___FK_US__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__TAG_PURCH__FK_PU__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__USER__FK_ROLE_ID__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__SUPPLIER__FK_TIM__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__SUPPLIER__FK_TYP__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__SUPPLIER__FK_USE__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__SUPPLIER__FK_USE__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__TAG_SUPPL__FK_SU__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__TAG__FK_USER_ID___4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__TAG__FK_USER_ID___4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__TAG_DELIV__FK_TA__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__TAG_PURCH__FK_TA__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="AMBITModel.FK__TAG_SUPPL__FK_TA__46E78A0C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
