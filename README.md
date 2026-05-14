@@ -5,6 +5,8 @@
 ## **Статус:**
 На данный момент находится в статусе переписывания.
 
+## **[Инструкция Пользователя.pdf](https://github.com/user-attachments/files/27760545/default.pdf)**
+
 ## **Демонстрация программы:**
 <img width="2667" height="1254" alt="Слайд8" src="https://github.com/user-attachments/assets/39f05e16-570f-45ee-83af-ffd741365190" />
 <img width="2667" height="1254" alt="Слайд9" src="https://github.com/user-attachments/assets/2a9e1fcc-c713-4e8b-9006-e95de8843e37" />
