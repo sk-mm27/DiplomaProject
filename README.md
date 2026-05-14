@@ -29,7 +29,7 @@
 
 
 ## **База данных:**
-Для создания базы данных использовался Microsoft SQL Server.
+Для создания базы данных использовался Microsoft SQL Server. [Файл юазы данных](https://github.com/sk-mm27/DiplomaProject/blob/master/DiplomaProjectDataBase.bacpac)
 
 <img  alt="Слайд6" src="https://github.com/user-attachments/assets/b6cbffbb-8386-490f-af00-a7aa5ffa34f0" />
 
@@ -40,7 +40,7 @@
 
 
 ## **Функционал:**
-В проекте реализованно 15 функций и разделение пользователей на роли отличающиеся по возможностям.
+В проекте реализованно 15 функций и разделение пользователей на роли отличающиеся по возможностям. При использовании [приложенной базы данных](https://github.com/sk-mm27/DiplomaProject/blob/master/DiplomaProjectDataBase.bacpac) для тестирования имеется пользователь с логином 1 и паролем 1 с ролью администратора.
 
 <img alt="Слайд7" src="https://github.com/user-attachments/assets/bc8fe6ec-df9c-4d23-b1ed-82f8c6da1c42" />
 
