@@ -12,7 +12,7 @@
 
 | АДРЕС НА КАРТЕ | ПРОВЕРКА В РЕЕСТРЕ |
 |:---------------:|:---------------:|
-|<img height="200" alt="image20" src="https://github.com/user-attachments/assets/031c728c-6846-40d6-a37b-d2f5c956683d" />|<img height="200" alt="image21" src="https://github.com/user-attachments/assets/642de0e8-a33d-4c25-9422-011bda014834" />|
+|<img alt="image20" src="https://github.com/user-attachments/assets/031c728c-6846-40d6-a37b-d2f5c956683d" />|<img lt="image21" src="https://github.com/user-attachments/assets/642de0e8-a33d-4c25-9422-011bda014834" />|
 
 | | | |
 |:---------------:|:------------------:|:------------------:|
