@@ -17,16 +17,18 @@
 
 | Left-Aligned | Center Aligned | Right Aligned |
 |---------------|------------------|---------------|
-|<img  alt="растровый_17_i" src="https://github.com/user-attachments/assets/f0637a38-8db6-41da-a511-b3d8a86def97" />|<img  alt="растровый_4_i" src="https://github.com/user-attachments/assets/ca319b63-f653-4fea-9248-50290530c045" />|
-|Добавление записи|Отображение рабочих часов поставщика|
-|<img  alt="растровый_6_i" src="https://github.com/user-attachments/assets/4cd01833-08aa-4bf0-9d28-bc2fc85aaec0" />|<img  alt="растровый_7_i" src="https://github.com/user-attachments/assets/815c1537-a503-4852-a896-f5a62cffa724" />|
-|Отображение поставщика на карте|Авторизация|
-|<img  alt="растровый_9_i" src="https://github.com/user-attachments/assets/3e186e60-9b0e-4f16-8621-703734f59d73" />|<img  alt="растровый_10_i" src="https://github.com/user-attachments/assets/649fb96f-3928-4b0f-a12f-374cd4512408" />|
-|Проверка поставщика в реестре недобросовестных поставщиков|Удаление записи|
-|<img  alt="растровый_12_i" src="https://github.com/user-attachments/assets/12b1713b-fd18-4ca4-b87c-dcd9aba7080d" />|<img  alt="растровый_13_i" src="https://github.com/user-attachments/assets/0052c2fe-c9e5-41f3-a2cc-c8cf231781b5" />|
-|Определение интерфейса для роли пользователя|Формирование рейтинга надежности поставщиков|
-|<img  alt="растровый_15_i" src="https://github.com/user-attachments/assets/44947e82-aa6a-47db-822c-4218038183ce" />|<img  alt="растровый_16_i" src="https://github.com/user-attachments/assets/44ab7369-6f31-4d66-8b74-771c2cc7c499" />|
-|Поиск по тегу|Активация/деактивация пользователя|
+|<img width="2902" height="2686" alt="растровый_17_i" src="https://github.com/user-attachments/assets/f0637a38-8db6-41da-a511-b3d8a86def97" />|<img width="1136" height="1706" alt="растровый_4_i" src="https://github.com/user-attachments/assets/ca319b63-f653-4fea-9248-50290530c045" />|<img width="2647" height="2369" alt="растровый_5_i" src="https://github.com/user-attachments/assets/baecf163-2481-416e-a15a-25857d17c758" />|
+|Добавление записи|Отображение рабочих часов поставщика|Изменение записи|
+|<img width="1136" height="1706" alt="растровый_6_i" src="https://github.com/user-attachments/assets/4cd01833-08aa-4bf0-9d28-bc2fc85aaec0" />|<img width="2794" height="2227" alt="растровый_7_i" src="https://github.com/user-attachments/assets/815c1537-a503-4852-a896-f5a62cffa724" />|<img width="1136" height="1652" alt="растровый_8_i" src="https://github.com/user-attachments/assets/53f421f9-60b1-44bd-aacc-aefee2c3d82b" />|
+|Отображение поставщика на карте|Авторизация|Отображение контактных данных поставщика|
+|<img width="1136" height="1771" alt="растровый_9_i" src="https://github.com/user-attachments/assets/3e186e60-9b0e-4f16-8621-703734f59d73" />|<img width="2373" height="1969" alt="растровый_10_i" src="https://github.com/user-attachments/assets/649fb96f-3928-4b0f-a12f-374cd4512408" />|<img width="1136" height="1895" alt="растровый_11_i" src="https://github.com/user-attachments/assets/89594b54-958e-49d4-b72c-7f43819b47ec" />|
+|Проверка поставщика в реестре недобросовестных поставщиков|Удаление записи|Отображение текущего времени поставщика|
+|<img width="1136" height="1895" alt="растровый_12_i" src="https://github.com/user-attachments/assets/12b1713b-fd18-4ca4-b87c-dcd9aba7080d" />|<img width="1136" height="1951" alt="растровый_13_i" src="https://github.com/user-attachments/assets/0052c2fe-c9e5-41f3-a2cc-c8cf231781b5" />|<img width="1136" height="1941" alt="растровый_14_i" src="https://github.com/user-attachments/assets/80d044b9-84ce-4238-88ff-6c495766f8b4" />|
+|Определение интерфейса для роли пользователя|Формирование рейтинга надежности поставщиков|Поиск по названию поставщика|
+|<img width="1136" height="2116" alt="растровый_15_i" src="https://github.com/user-attachments/assets/44947e82-aa6a-47db-822c-4218038183ce" />|<img width="1136" height="1890" alt="растровый_16_i" src="https://github.com/user-attachments/assets/44ab7369-6f31-4d66-8b74-771c2cc7c499" />|<img width="2902" height="2686" alt="растровый_17_i" src="https://github.com/user-attachments/assets/f0637a38-8db6-41da-a511-b3d8a86def97" />|
+|Поиск по тегу|Активация/деактивация пользователя|Заявка на регистрацию|
+<img width="942" height="201" alt="image" src="https://github.com/user-attachments/assets/7bc7394a-dd37-4744-9125-a90b831b1ad9" />
+
 
 
 
