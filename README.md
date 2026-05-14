@@ -15,7 +15,7 @@
 
 <img width="2667" height="1070" alt="Слайд7" src="https://github.com/user-attachments/assets/bc8fe6ec-df9c-4d23-b1ed-82f8c6da1c42" />
 
-| Left-Aligned | Center Aligned | Right Aligned |
+| | | |
 |:---------------:|:------------------:|:---------------:|
 |<img width="2902" height="2686" alt="растровый_17_i" src="https://github.com/user-attachments/assets/f0637a38-8db6-41da-a511-b3d8a86def97" />|<img width="1136" height="1706" alt="растровый_4_i" src="https://github.com/user-attachments/assets/ca319b63-f653-4fea-9248-50290530c045" />|<img width="2647" height="2369" alt="растровый_5_i" src="https://github.com/user-attachments/assets/baecf163-2481-416e-a15a-25857d17c758" />|
 |Добавление записи|Отображение рабочих часов поставщика|Изменение записи|
