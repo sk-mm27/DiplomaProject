@@ -10,6 +10,12 @@
 
 <img width="2667" height="1254" alt="Слайд6" src="https://github.com/user-attachments/assets/b6cbffbb-8386-490f-af00-a7aa5ffa34f0" />
 
+| | | |
+|:---------------:|:------------------:|:---------------:|
+|<img width="3940" height="4793" alt="растровый_#image140" src="https://github.com/user-attachments/assets/cf1eceb6-8a3d-4605-b518-9e6f1524f7cb" />|<img width="3940" height="4793" alt="растровый_#image152" src="https://github.com/user-attachments/assets/4454f16a-5d2a-4fb1-b574-f0a893b3856a" />|<img width="3940" height="4793" alt="растровый_#image164" src="https://github.com/user-attachments/assets/19fc3cd8-17a2-4e65-a77d-c927f847e4a5" />|
+|<img width="3940" height="4793" alt="растровый_#image176" src="https://github.com/user-attachments/assets/50dbff4b-9bb9-48ef-90b8-0ff906697e36" />|<img width="3940" height="4793" alt="растровый_#image188" src="https://github.com/user-attachments/assets/30e13852-b9ea-47eb-8528-24c707c3f34f" />|<img width="3940" height="4793" alt="растровый_#image200" src="https://github.com/user-attachments/assets/b531d450-cf21-4ab5-92b3-eb3d39066495" />|
+
+
 ## **Функционал:**
 В проекте реализованно 15 функций и разделение пользователей на роли отличающиеся по возможностям.
 
