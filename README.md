@@ -23,6 +23,8 @@
 |:---------------:|:------------------:|
 |<img alt="image26" src="https://github.com/user-attachments/assets/676efc9a-c26f-47a3-8225-da8cf88921f5" />|<img alt="image25" src="https://github.com/user-attachments/assets/8524c281-ba62-41b5-ad54-5196c97c2023" />|
 
+<img width="2667" height="1254" alt="Слайд14" src="https://github.com/user-attachments/assets/82f8b34c-e7ce-4b5b-a629-8c8ec820aed8" />
+
 
 ## **База данных:**
 Для создания базы данных использовался Microsoft SQL Server.
