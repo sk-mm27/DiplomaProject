@@ -29,7 +29,7 @@
 
 
 ## **База данных:**
-Для создания базы данных использовался Microsoft SQL Server. [Файл юазы данных](https://github.com/sk-mm27/DiplomaProject/blob/master/DiplomaProjectDataBase.bacpac)
+Для создания базы данных использовался Microsoft SQL Server. [Файл базы данных](https://github.com/sk-mm27/DiplomaProject/blob/master/DiplomaProjectDataBase.bacpac)
 
 <img  alt="Слайд6" src="https://github.com/user-attachments/assets/b6cbffbb-8386-490f-af00-a7aa5ffa34f0" />
 
