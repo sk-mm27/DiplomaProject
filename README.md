@@ -27,7 +27,6 @@
 |Определение интерфейса для роли пользователя|Формирование рейтинга надежности поставщиков|Поиск по названию поставщика|
 |<img width="1136" height="2116" alt="растровый_15_i" src="https://github.com/user-attachments/assets/44947e82-aa6a-47db-822c-4218038183ce" />|<img width="1136" height="1890" alt="растровый_16_i" src="https://github.com/user-attachments/assets/44ab7369-6f31-4d66-8b74-771c2cc7c499" />|<img width="2902" height="2686" alt="растровый_17_i" src="https://github.com/user-attachments/assets/f0637a38-8db6-41da-a511-b3d8a86def97" />|
 |Поиск по тегу|Активация/деактивация пользователя|Заявка на регистрацию|
-<img width="942" height="201" alt="image" src="https://github.com/user-attachments/assets/7bc7394a-dd37-4744-9125-a90b831b1ad9" />
 
 
 
