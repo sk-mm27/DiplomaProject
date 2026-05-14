@@ -14,14 +14,14 @@
 |:---------------:|:---------------:|
 |<img alt="image20" src="https://github.com/user-attachments/assets/031c728c-6846-40d6-a37b-d2f5c956683d" />|<img lt="image21" src="https://github.com/user-attachments/assets/642de0e8-a33d-4c25-9422-011bda014834" />|
 
-| | | |
+| ЧАСЫ РАБОТЫ | ТЕКУЩЕЕ ВРЕМЯ | КОНТАКТЫ |
 |:---------------:|:------------------:|:------------------:|
-|<img height="200" alt="image22" src="https://github.com/user-attachments/assets/780bf719-33a1-44eb-872a-c721f49e05a1" />|<img height="200" alt="image23" src="https://github.com/user-attachments/assets/7c2f4fac-518a-4f72-b72e-ccb2459d4934" />|<img height="200" alt="image24" src="https://github.com/user-attachments/assets/9bb97929-b5c7-47f2-9e1c-f9c422ab64ac" />|
+|<img alt="image22" src="https://github.com/user-attachments/assets/780bf719-33a1-44eb-872a-c721f49e05a1" />|<img alt="image23" src="https://github.com/user-attachments/assets/7c2f4fac-518a-4f72-b72e-ccb2459d4934" />|<img alt="image24" src="https://github.com/user-attachments/assets/9bb97929-b5c7-47f2-9e1c-f9c422ab64ac" />|
 
 
-| | |
+| ПОИСК ПО НАЗВАНИЮ | ПОИСК ПО ТЕГУ |
 |:---------------:|:------------------:|
-|<img height="200" alt="image26" src="https://github.com/user-attachments/assets/676efc9a-c26f-47a3-8225-da8cf88921f5" />|<img height="200" alt="image25" src="https://github.com/user-attachments/assets/8524c281-ba62-41b5-ad54-5196c97c2023" />|
+|<img alt="image26" src="https://github.com/user-attachments/assets/676efc9a-c26f-47a3-8225-da8cf88921f5" />|<img alt="image25" src="https://github.com/user-attachments/assets/8524c281-ba62-41b5-ad54-5196c97c2023" />|
 
 
 ## **База данных:**
