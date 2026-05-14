@@ -5,6 +5,22 @@
 ## **Статус:**
 На данный момент находится в статусе переписывания.
 
+## **Демонстрация программы:**
+<img width="2667" height="1254" alt="Слайд8" src="https://github.com/user-attachments/assets/39f05e16-570f-45ee-83af-ffd741365190" />
+<img width="2667" height="1254" alt="Слайд9" src="https://github.com/user-attachments/assets/2a9e1fcc-c713-4e8b-9006-e95de8843e37" />
+<img width="2667" height="1254" alt="Слайд10" src="https://github.com/user-attachments/assets/f6b2c30d-ef93-49fb-8cac-5fbf211f1f65" />
+| | |
+|:---------------:|:------------------:|
+<img width="1345" height="1080" alt="image20" src="https://github.com/user-attachments/assets/031c728c-6846-40d6-a37b-d2f5c956683d" />
+
+
+
+| | | |
+|:---------------:|:------------------:|:------------------:|
+
+| | |
+|:---------------:|:------------------:|
+
 ## **База данных:**
 Для создания базы данных использовался Microsoft SQL Server.
 
